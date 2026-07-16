@@ -11,7 +11,7 @@
   <meta name="apple-mobile-web-app-title" content="전기 실무 Toolbox" />
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-  <link rel="stylesheet" href="style.css?v=10.7.0" />
+  <link rel="stylesheet" href="style.css?v=10.8.1" />
 </head>
 <body>
   <main class="app">
@@ -26,6 +26,7 @@
       <button class="tab" data-tab="material">🔧 자재선정</button>
       <button class="tab" data-tab="saving">💡 전력절감</button>
       <button class="tab" data-tab="tariffAdmin">📊 한전 요금표 관리</button>
+      <button class="tab" data-tab="safety">🛡️ 전기안전관리</button>
     </nav>
 
     <section id="converter" class="panel active">
@@ -208,11 +209,47 @@
       </div>
     </section>
 
+
+    <section id="safety" class="panel">
+      <div class="card">
+        <h2>🛡️ 전기안전관리 실무요약</h2>
+        <p class="help">KEC 질의회신 사례집과 전기기술 질의회신 사례를 현장 판단 중심으로 압축했습니다. 검색 후 항목을 펼쳐 핵심·절차·주의사항을 확인하세요.</p>
+        <div class="safety-search-grid">
+          <label>검색
+            <input id="safetySearch" type="search" placeholder="예: 절연저항, 인버터, 접지, SPD, 차단기" />
+          </label>
+          <label>분류
+            <select id="safetyCategory">
+              <option value="all">전체</option>
+              <option value="절연·누설">절연·누설</option>
+              <option value="접지">접지</option>
+              <option value="차단기">차단기</option>
+              <option value="서지">SPD·LA·서지</option>
+              <option value="수변전">수변전</option>
+              <option value="발전기·모터">발전기·모터</option>
+            </select>
+          </label>
+        </div>
+        <div class="actions">
+          <button id="safetyExpandAll" class="secondary" type="button">전체 펼치기</button>
+          <button id="safetyCollapseAll" class="secondary" type="button">전체 접기</button>
+        </div>
+        <div class="safety-legend">
+          <span class="badge ok">KEC 기준</span>
+          <span class="badge warn">실무 참고</span>
+          <span class="badge danger">제조사 확인</span>
+        </div>
+      </div>
+      <div id="safetyCount" class="basis"></div>
+      <div id="safetyList" class="safety-list"></div>
+      <section class="notice"><strong>적용 주의</strong> 질의회신은 개별 조건에 대한 해석·기술 참고자료입니다. 실제 설계·점검·시공은 최신 KEC, 전기설비기술기준, 검사기관 요구사항, 설비 제조사 매뉴얼과 현장 단선도를 우선 확인하세요.</section>
+    </section>
+
     <section class="notice"><strong>주의</strong> 본 도구는 KEC, 한전 요금표, 국내 표준 자재 기준을 활용한 실무 보조용입니다. 최종 설계·시공 전 최신 규정, 포설조건, 제조사 치수, 사내 기준을 확인하세요.</section>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="database.js?v=10.7.0"></script>
-  <script src="script.js?v=10.7.0"></script>
+  <script src="database.js?v=10.8.1"></script>
+  <script src="script.js?v=10.8.1"></script>
   <script>
     (function () {
       function showUpdateNotice(registration) {
