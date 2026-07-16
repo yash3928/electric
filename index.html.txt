@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>전기 실무 Toolbox</title>
+  <meta name="description" content="KEC 기반 전기 실무 계산 · 전력절감 검토" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="전기 실무 Toolbox" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css?v=10.7.0" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">KEC Edition</p>
+      <h1>⚡ 전기 실무 Toolbox</h1>
+      <!--<p class="sub">Electrical Toolbox Pro · KEC 기반 실무 계산 · 전력절감 검토</p>-->
+    </header>
+
+    <nav class="tabs" aria-label="메뉴">
+      <button class="tab active" data-tab="converter">⚡ 전기변환기</button>
+      <button class="tab" data-tab="material">🔧 자재선정</button>
+      <button class="tab" data-tab="saving">💡 전력절감</button>
+      <button class="tab" data-tab="tariffAdmin">📊 한전 요금표 관리</button>
+    </nav>
+
+    <section id="converter" class="panel active">
+      <div class="card">
+        <h2>⚡ 전기변환기</h2>
+        <p class="help">현장에서 자주 쓰는 변환만 간단하게 계산합니다.</p>
+        <div class="converter-grid">
+          <div class="converter-box">
+            <h3>HP ↔ kW</h3>
+            <div class="grid">
+              <label>HP<input id="convHp" type="number" step="0.01" min="0" placeholder="예: 5" /></label>
+              <label>kW<input id="convKw" type="number" step="0.01" min="0" placeholder="예: 3.7" /></label>
+            </div>
+            <p class="basis">1 HP = 0.746 kW 기준입니다.</p>
+          </div>
+          <div class="converter-box">
+            <h3>4~20mA ↔ %</h3>
+            <div class="grid">
+              <label>mA<input id="convMa" type="number" step="0.001" min="0" placeholder="예: 12" /></label>
+              <label>%<input id="convPercent" type="number" step="0.01" min="0" placeholder="예: 50" /></label>
+            </div>
+            <p class="basis">4mA = 0%, 20mA = 100% 기준입니다.</p>
+          </div>
+          <div class="converter-box">
+            <h3>Hz ↔ RPM</h3>
+            <div class="grid">
+              <label>극수<select id="convPoles"><option value="2">2극</option><option value="4" selected>4극</option><option value="6">6극</option><option value="8">8극</option></select></label>
+              <label>Hz<input id="convHz" type="number" step="0.01" min="0" placeholder="예: 60" /></label>
+              <label class="full">RPM<input id="convRpm" type="number" step="1" min="0" placeholder="예: 1800" /></label>
+            </div>
+            <p class="basis">동기속도 기준입니다. 실제 모터 회전수는 슬립 때문에 약간 낮을 수 있습니다.</p>
+          </div>
+          <div class="converter-box">
+            <h3>AWG ↔ SQ</h3>
+            <div class="grid">
+              <label>AWG<select id="convAwg"></select></label>
+              <label>SQ<select id="convSq"></select></label>
+            </div>
+            <p class="basis">대표 환산값입니다. 최종 적용은 케이블 제조사 규격과 허용전류를 확인하세요.</p>
+          </div>
+        </div>
+        <div class="actions"><button id="convReset" class="secondary" type="button">초기화</button></div>
+      </div>
+    </section>
+
+    <section id="material" class="panel">
+      <div class="card">
+        <h2>🔧 자재선정</h2>
+        <p class="help">부하용량을 기준으로 설계전류를 계산하고, KEC 검토와 국내 표준 자재 추천을 함께 표시합니다.</p>
+        <div class="grid">
+          <label>전원 방식
+            <select id="matPhase"><option value="three">삼상 380V</option><option value="single">단상 220V</option></select>
+          </label>
+          <label>입력 방식
+            <select id="matInputMode"><option value="direct">직접 입력</option><option value="motor">모터(kW/HP)</option></select>
+          </label>
+          <label id="matDirectWrap">부하용량(kW)
+            <input id="matKw" type="number" step="0.01" min="0" placeholder="예: 5.5" />
+          </label>
+          <label id="matMotorWrap" class="hidden">모터 용량
+            <select id="matMotor"></select>
+          </label>
+          <label>설치 상황
+            <select id="matLocation"><option value="indoorHidden">실내 매입/은폐</option><option value="indoorExposed">실내 노출/기계 주변</option><option value="outdoorWet">옥외/습기 우려</option></select>
+          </label>
+          <label>역률 PF
+            <input id="matPf" type="number" step="0.01" min="0.1" max="1" value="0.90" />
+          </label>
+          <label>모터 효율 η
+            <input id="matEff" type="number" step="0.01" min="0.1" max="1" value="0.85" />
+          </label>
+        </div>
+        <div class="actions"><button id="matBtn" class="primary">자재 추천</button><button id="matReset" class="secondary">초기화</button></div>
+      </div>
+      <div id="matResult" class="result hidden"></div>
+    </section>
+
+    <section id="conduit" class="panel">
+      <div class="card"><h2>전선관 부속 선정</h2><div class="grid"><label>전선관 종류<select id="conduitType"><option value="CD">CD관</option><option value="GW">GW 방수후렉시블관</option></select></label><label>전선관 규격<select id="conduitSize"></select></label></div><div class="actions"><button id="conduitBtn" class="primary">부속 추천</button></div></div>
+      <div id="conduitResult" class="result hidden"></div>
+    </section>
+
+    <section id="cable" class="panel">
+      <div class="card"><h2>케이블 압착단자 선정</h2><p class="help">단자 구멍 규격은 현장 기기 치수 확인 후 최종 적용하세요.</p><div class="grid"><label>케이블 종류<select id="cableType"><option value="CV_4C">CV 4C</option><option value="CV_3C">CV 3C</option><option value="CV_2C">CV 2C</option><option value="HIV_SINGLE">HIV/IV 단심</option></select></label><label>케이블 굵기<select id="cableSq"></select></label></div><div class="actions"><button id="cableBtn" class="primary">자재 추천</button></div></div>
+      <div id="cableResult" class="result hidden"></div>
+    </section>
+
+    <section id="terminalBlock" class="panel">
+      <div class="card"><h2>단자대 규격별 자재 선정</h2><p class="help">단자대 정격과 극수를 선택하면 해당 단자대 범위에 들어오는 케이블 굵기와 압착단자 참고 규격을 자동 표시합니다.</p><div class="grid"><label>단자대 정격<select id="tbAmp"></select></label><label>극수<select id="tbPole"><option>2P</option><option>3P</option><option selected>4P</option></select></label></div><p id="tbRangeHint" class="basis"></p></div>
+      <div id="tbResult" class="result hidden"></div>
+    </section>
+
+    <section id="saving" class="panel">
+      <div class="card">
+        <h2>💡 전력절감</h2>
+        <p class="help">기존값과 변경값을 비교합니다. 변경값이 기존과 같으면 <b>변경 없음</b>을 체크하세요. 프로그램이 전력량 절감, 운전시간 변경, 복합 절감을 자동 판별합니다.</p>
+        <div class="grid">
+          <label class="full">계약종별
+            <select id="saveTariff"></select>
+          </label>
+          <p class="help full">설비별 산정일수와 계절 기준을 개별로 입력합니다.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>설비 입력</h3>
+        <label class="full eq-name-label">설비명<input id="eqName" type="text" placeholder="예: 유량조정조 교반기" /></label>
+
+        <div class="compare-grid input-compare">
+          <div class="compare-col">
+            <h4>기존 조건</h4>
+            <label>기존 부하(kW)<input id="oldKw" type="number" min="0" step="0.01" placeholder="예: 5.5" /></label>
+            <label>기존 대수<input id="oldCount" type="number" min="0" step="1" value="1" /></label>
+            <label>기존 가동시간(분/시간)<input id="oldRunMin" type="number" min="0" max="60" step="1" value="60" /></label>
+          </div>
+
+          <div class="compare-col">
+            <h4>변경 조건</h4>
+            <label class="field-title">변경 부하(kW) <span class="same-inline"><input id="sameKw" type="checkbox" checked /> 변경 없음</span></label>
+            <label id="newKwWrap"><input id="newKw" type="number" min="0" step="0.01" placeholder="예: 5.5" /></label>
+            <label class="field-title">변경 대수 <span class="same-inline"><input id="sameCount" type="checkbox" checked /> 변경 없음</span></label>
+            <label id="newCountWrap"><input id="newCount" type="number" min="0" step="1" value="1" /></label>
+            <label class="field-title">변경 가동시간(분/시간) <span class="same-inline"><input id="sameRunMin" type="checkbox" checked /> 변경 없음</span></label>
+            <label id="newRunMinWrap"><input id="newRunMin" type="number" min="0" max="60" step="1" value="60" /></label>
+          </div>
+        </div>
+
+        <div class="period-box">
+          <label class="checkline"><input id="eqAllYear" type="checkbox" checked /> 연중운전(365일)</label>
+          <div id="eqPeriodCustom" class="grid hidden">
+            <label>산정일수<input id="eqCalcDays" type="number" min="1" step="1" value="90" /></label>
+            <label>계절 기준
+              <select id="eqSeason">
+                <option value="springAutumn" selected>봄·가을철 (150일)</option>
+                <option value="summer">여름철 (90일)</option>
+                <option value="springSummerAutumn">봄·여름·가을철 (245일)</option>
+                <option value="winter">겨울철 (120일)</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <label class="full note-label">비고
+          <input id="eqNote" type="text" placeholder="예: 인버터 제어(60Hz→45Hz), LED 교체, 대수 조정(4→3대)" />
+        </label>
+      </div>
+
+      <div class="card">
+        <h3>가동시간 선택</h3>
+        <p class="help">시작시간과 종료시간을 선택해 가동 구간을 추가합니다. 미선택 시 24시간 운전으로 계산되며, 명확히 입력하려면 <b>24시간 선택</b>을 눌러주세요.</p>
+        <div id="timeSelectors" class="time-selectors"></div>
+        <div class="actions"><button id="addEquip" class="primary">설비 추가</button><button id="clearEquipInput" class="secondary">입력 초기화</button></div>
+      </div>
+
+      <div id="equipmentList" class="card hidden"></div>
+      <div class="actions"><button id="calcSaving" class="primary">전력절감 검토 결과 산출</button><button id="resetSaving" class="secondary">전체 초기화</button></div>
+      <div id="savingResult" class="result hidden"></div>
+    </section>
+
+
+    <section id="tariffAdmin" class="panel">
+      <div class="card">
+        <h2>📊 한전 요금표 관리</h2>
+        <p class="help">현재 적용 요금표를 확인하고, 새 한전 요금표 PDF를 업로드해 텍스트를 분석합니다. 분석 결과는 반드시 미리보기로 확인한 뒤 database.js 갱신에 사용하세요.</p>
+        <div id="tariffInfo" class="result-in-card"></div>
+      </div>
+      <div class="card">
+        <h3>요금표 PDF 반자동 분석</h3>
+        <p class="help">GitHub Pages 보안 구조상 요금 데이터는 tariff.json으로 분리했습니다. PDF 분석 후 갱신 보조 JSON을 확인하고, 최종적으로 tariff.json을 교체하는 방식으로 관리합니다.</p>
+        <div class="grid">
+          <label class="full">한전 요금표 PDF
+            <input id="tariffPdfFile" type="file" accept="application/pdf" />
+          </label>
+        </div>
+        <div class="actions">
+          <button id="tariffPdfAnalyze" class="primary" type="button">PDF 분석</button>
+          <button id="tariffPdfClear" class="secondary" type="button">분석 초기화</button>
+        </div>
+        <div id="tariffPdfResult" class="result-in-card hidden"></div>
+      </div>
+    </section>
+
+    <section class="notice"><strong>주의</strong> 본 도구는 KEC, 한전 요금표, 국내 표준 자재 기준을 활용한 실무 보조용입니다. 최종 설계·시공 전 최신 규정, 포설조건, 제조사 치수, 사내 기준을 확인하세요.</section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="database.js?v=10.7.0"></script>
+  <script src="script.js?v=10.7.0"></script>
+  <script>
+    (function () {
+      function showUpdateNotice(registration) {
+        if (document.getElementById('pwaUpdateNotice')) return;
+        var box = document.createElement('div');
+        box.id = 'pwaUpdateNotice';
+        box.className = 'pwa-update-notice';
+        box.innerHTML = '<span>새 버전이 있습니다.</span><button type="button">업데이트</button>';
+        document.body.appendChild(box);
+        box.querySelector('button').addEventListener('click', function () {
+          if (registration && registration.waiting) {
+            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+          } else {
+            window.location.reload();
+          }
+        });
+      }
+
+      if ('serviceWorker' in navigator) {
+        var refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (refreshing) return;
+          refreshing = true;
+          window.location.reload();
+        });
+
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('./service-worker.js').then(function (registration) {
+            if (registration.waiting && navigator.serviceWorker.controller) {
+              showUpdateNotice(registration);
+            }
+            registration.addEventListener('updatefound', function () {
+              var newWorker = registration.installing;
+              if (!newWorker) return;
+              newWorker.addEventListener('statechange', function () {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  showUpdateNotice(registration);
+                }
+              });
+            });
+          }).catch(function (err) {
+            console.warn('Service worker registration failed:', err);
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

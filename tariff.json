@@ -1,0 +1,700 @@
+{
+  "schema": "electrical-toolbox-pro-tariff-v1",
+  "version": "2026-06-01",
+  "effectiveDate": "2026-06-01",
+  "seasonBasis": {
+    "summer": "6월~8월",
+    "springAutumn": "3월~5월, 9월~10월",
+    "winter": "11월~2월"
+  },
+  "unit": {
+    "basic": "원/kW",
+    "energy": "원/kWh"
+  },
+  "contracts": [
+    {
+      "id": "general_a1_low",
+      "label": "일반용(갑)Ⅰ 저압",
+      "type": "flat",
+      "basic": 6160,
+      "energy": {
+        "summer": 132.4,
+        "springAutumn": 91.9,
+        "winter": 119
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "general_a1_highA_1",
+      "label": "일반용(갑)Ⅰ 고압A 선택Ⅰ",
+      "type": "flat",
+      "basic": 7170,
+      "energy": {
+        "summer": 142.6,
+        "springAutumn": 98.6,
+        "winter": 130.3
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "general_a1_highA_2",
+      "label": "일반용(갑)Ⅰ 고압A 선택Ⅱ",
+      "type": "flat",
+      "basic": 8230,
+      "energy": {
+        "summer": 138.6,
+        "springAutumn": 94.3,
+        "winter": 125
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "general_a1_highB_1",
+      "label": "일반용(갑)Ⅰ 고압B 선택Ⅰ",
+      "type": "flat",
+      "basic": 7170,
+      "energy": {
+        "summer": 140.5,
+        "springAutumn": 97.5,
+        "winter": 127.3
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "general_a1_highB_2",
+      "label": "일반용(갑)Ⅰ 고압B 선택Ⅱ",
+      "type": "flat",
+      "basic": 8230,
+      "energy": {
+        "summer": 135.2,
+        "springAutumn": 92.2,
+        "winter": 122
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "general_a2_highA_1",
+      "label": "일반용(갑)Ⅱ 고압A 선택Ⅰ",
+      "type": "tou",
+      "basic": 7170,
+      "energy": {
+        "summer": {
+          "light": 89.4,
+          "mid": 140.6,
+          "peak": 163.1
+        },
+        "springAutumn": {
+          "light": 89.4,
+          "mid": 96.8,
+          "peak": 108.1
+        },
+        "winter": {
+          "light": 98.1,
+          "mid": 128.5,
+          "peak": 143.3
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "general_a2_highA_2",
+      "label": "일반용(갑)Ⅱ 고압A 선택Ⅱ",
+      "type": "tou",
+      "basic": 8230,
+      "energy": {
+        "summer": {
+          "light": 84.1,
+          "mid": 135.3,
+          "peak": 157.8
+        },
+        "springAutumn": {
+          "light": 84.1,
+          "mid": 91.5,
+          "peak": 102.8
+        },
+        "winter": {
+          "light": 92.8,
+          "mid": 123.2,
+          "peak": 138
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "general_a2_highB_1",
+      "label": "일반용(갑)Ⅱ 고압B 선택Ⅰ",
+      "type": "tou",
+      "basic": 7170,
+      "energy": {
+        "summer": {
+          "light": 88.8,
+          "mid": 137.4,
+          "peak": 153.8
+        },
+        "springAutumn": {
+          "light": 88.8,
+          "mid": 94.7,
+          "peak": 100.1
+        },
+        "winter": {
+          "light": 97.8,
+          "mid": 125.1,
+          "peak": 139.3
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "general_a2_highB_2",
+      "label": "일반용(갑)Ⅱ 고압B 선택Ⅱ",
+      "type": "tou",
+      "basic": 8230,
+      "energy": {
+        "summer": {
+          "light": 83.5,
+          "mid": 132.1,
+          "peak": 148.5
+        },
+        "springAutumn": {
+          "light": 83.5,
+          "mid": 89.4,
+          "peak": 94.8
+        },
+        "winter": {
+          "light": 92.5,
+          "mid": 119.8,
+          "peak": 134
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "general_b_highA_1",
+      "label": "일반용(을) 고압A 선택Ⅰ",
+      "type": "tou",
+      "basic": 7220,
+      "energy": {
+        "summer": {
+          "light": 92.8,
+          "mid": 145.7,
+          "peak": 227.8
+        },
+        "springAutumn": {
+          "light": 92.8,
+          "mid": 115.3,
+          "peak": 146
+        },
+        "winter": {
+          "light": 99.8,
+          "mid": 145.9,
+          "peak": 203.4
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "general_b_highA_2",
+      "label": "일반용(을) 고압A 선택Ⅱ",
+      "type": "tou",
+      "basic": 8320,
+      "energy": {
+        "summer": {
+          "light": 87.3,
+          "mid": 140.2,
+          "peak": 222.3
+        },
+        "springAutumn": {
+          "light": 87.3,
+          "mid": 109.8,
+          "peak": 140.5
+        },
+        "winter": {
+          "light": 94.3,
+          "mid": 140.4,
+          "peak": 197.9
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "general_b_highA_3",
+      "label": "일반용(을) 고압A 선택Ⅲ",
+      "type": "tou",
+      "basic": 9810,
+      "energy": {
+        "summer": {
+          "light": 86.4,
+          "mid": 139.6,
+          "peak": 209.9
+        },
+        "springAutumn": {
+          "light": 86.4,
+          "mid": 108.5,
+          "peak": 132.2
+        },
+        "winter": {
+          "light": 93.7,
+          "mid": 139.8,
+          "peak": 186.7
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "general_b_highB_1",
+      "label": "일반용(을) 고압B 선택Ⅰ",
+      "type": "tou",
+      "basic": 6630,
+      "energy": {
+        "summer": {
+          "light": 95.9,
+          "mid": 148.2,
+          "peak": 229.4
+        },
+        "springAutumn": {
+          "light": 95.9,
+          "mid": 118.2,
+          "peak": 148.5
+        },
+        "winter": {
+          "light": 102.9,
+          "mid": 148.2,
+          "peak": 204.4
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "general_b_highB_2",
+      "label": "일반용(을) 고압B 선택Ⅱ",
+      "type": "tou",
+      "basic": 7380,
+      "energy": {
+        "summer": {
+          "light": 92.1,
+          "mid": 144.4,
+          "peak": 225.6
+        },
+        "springAutumn": {
+          "light": 92.1,
+          "mid": 114.4,
+          "peak": 144.7
+        },
+        "winter": {
+          "light": 99.1,
+          "mid": 144.4,
+          "peak": 200.6
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "general_b_highB_3",
+      "label": "일반용(을) 고압B 선택Ⅲ",
+      "type": "tou",
+      "basic": 8190,
+      "energy": {
+        "summer": {
+          "light": 90.4,
+          "mid": 142.7,
+          "peak": 224
+        },
+        "springAutumn": {
+          "light": 90.4,
+          "mid": 112.8,
+          "peak": 143.1
+        },
+        "winter": {
+          "light": 97.5,
+          "mid": 142.7,
+          "peak": 198.9
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_a1_low",
+      "label": "산업용(갑)Ⅰ 저압",
+      "type": "flat",
+      "basic": 5550,
+      "energy": {
+        "summer": 116.2,
+        "springAutumn": 94.4,
+        "winter": 114.5
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "industrial_a1_highA_1",
+      "label": "산업용(갑)Ⅰ 고압A 선택Ⅰ",
+      "type": "flat",
+      "basic": 6490,
+      "energy": {
+        "summer": 124.8,
+        "springAutumn": 101.1,
+        "winter": 124.7
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "industrial_a1_highA_2",
+      "label": "산업용(갑)Ⅰ 고압A 선택Ⅱ",
+      "type": "flat",
+      "basic": 7470,
+      "energy": {
+        "summer": 120,
+        "springAutumn": 96.5,
+        "winter": 118.2
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "industrial_a1_highB_1",
+      "label": "산업용(갑)Ⅰ 고압B 선택Ⅰ",
+      "type": "flat",
+      "basic": 6000,
+      "energy": {
+        "summer": 123.6,
+        "springAutumn": 100,
+        "winter": 123.2
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "industrial_a1_highB_2",
+      "label": "산업용(갑)Ⅰ 고압B 선택Ⅱ",
+      "type": "flat",
+      "basic": 6900,
+      "energy": {
+        "summer": 118.9,
+        "springAutumn": 95.4,
+        "winter": 117.1
+      },
+      "note": "계약전력 300kW 미만"
+    },
+    {
+      "id": "industrial_a2_highA_1",
+      "label": "산업용(갑)Ⅱ 고압A 선택Ⅰ",
+      "type": "tou",
+      "basic": 6490,
+      "energy": {
+        "summer": {
+          "light": 95.7,
+          "mid": 121.5,
+          "peak": 155
+        },
+        "springAutumn": {
+          "light": 95.7,
+          "mid": 100.5,
+          "peak": 119.7
+        },
+        "winter": {
+          "light": 103.1,
+          "mid": 120,
+          "peak": 149.4
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "industrial_a2_highA_2",
+      "label": "산업용(갑)Ⅱ 고압A 선택Ⅱ",
+      "type": "tou",
+      "basic": 7470,
+      "energy": {
+        "summer": {
+          "light": 90.8,
+          "mid": 116.6,
+          "peak": 150.1
+        },
+        "springAutumn": {
+          "light": 90.8,
+          "mid": 95.6,
+          "peak": 114.8
+        },
+        "winter": {
+          "light": 98.2,
+          "mid": 115.1,
+          "peak": 144.5
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "industrial_a2_highB_1",
+      "label": "산업용(갑)Ⅱ 고압B 선택Ⅰ",
+      "type": "tou",
+      "basic": 6000,
+      "energy": {
+        "summer": {
+          "light": 92.5,
+          "mid": 120.1,
+          "peak": 153.9
+        },
+        "springAutumn": {
+          "light": 92.5,
+          "mid": 99.1,
+          "peak": 117.9
+        },
+        "winter": {
+          "light": 99.7,
+          "mid": 117.7,
+          "peak": 146.4
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "industrial_a2_highB_2",
+      "label": "산업용(갑)Ⅱ 고압B 선택Ⅱ",
+      "type": "tou",
+      "basic": 6900,
+      "energy": {
+        "summer": {
+          "light": 88,
+          "mid": 115.6,
+          "peak": 149.4
+        },
+        "springAutumn": {
+          "light": 88,
+          "mid": 94.6,
+          "peak": 113.4
+        },
+        "winter": {
+          "light": 95.2,
+          "mid": 113.2,
+          "peak": 141.9
+        }
+      },
+      "note": "계약전력 300kW 미만 시간대별"
+    },
+    {
+      "id": "industrial_b_highA_1",
+      "label": "산업용(을) 고압A 선택Ⅰ",
+      "type": "tou",
+      "basic": 7220,
+      "energy": {
+        "summer": {
+          "light": 121.5,
+          "mid": 169.3,
+          "peak": 234.5
+        },
+        "springAutumn": {
+          "light": 121.5,
+          "mid": 138.9,
+          "peak": 156.4
+        },
+        "winter": {
+          "light": 128.5,
+          "mid": 169.5,
+          "peak": 210.1
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highA_2",
+      "label": "산업용(을) 고압A 선택Ⅱ",
+      "type": "tou",
+      "basic": 8320,
+      "energy": {
+        "summer": {
+          "light": 116,
+          "mid": 163.8,
+          "peak": 229
+        },
+        "springAutumn": {
+          "light": 116,
+          "mid": 133.4,
+          "peak": 150.9
+        },
+        "winter": {
+          "light": 123,
+          "mid": 164,
+          "peak": 204.6
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highA_3",
+      "label": "산업용(을) 고압A 선택Ⅲ",
+      "type": "tou",
+      "basic": 9810,
+      "energy": {
+        "summer": {
+          "light": 115.1,
+          "mid": 163.2,
+          "peak": 216.6
+        },
+        "springAutumn": {
+          "light": 115.1,
+          "mid": 132.1,
+          "peak": 142.6
+        },
+        "winter": {
+          "light": 122.4,
+          "mid": 163.4,
+          "peak": 193.4
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highB_1",
+      "label": "산업용(을) 고압B 선택Ⅰ",
+      "type": "tou",
+      "basic": 6630,
+      "energy": {
+        "summer": {
+          "light": 131.4,
+          "mid": 178.6,
+          "peak": 242.9
+        },
+        "springAutumn": {
+          "light": 131.4,
+          "mid": 148.6,
+          "peak": 165.7
+        },
+        "winter": {
+          "light": 138.4,
+          "mid": 178.6,
+          "peak": 217.9
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highB_2",
+      "label": "산업용(을) 고압B 선택Ⅱ",
+      "type": "tou",
+      "basic": 7380,
+      "energy": {
+        "summer": {
+          "light": 127.6,
+          "mid": 174.8,
+          "peak": 239.1
+        },
+        "springAutumn": {
+          "light": 127.6,
+          "mid": 144.8,
+          "peak": 161.9
+        },
+        "winter": {
+          "light": 134.6,
+          "mid": 174.8,
+          "peak": 214.1
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highB_3",
+      "label": "산업용(을) 고압B 선택Ⅲ",
+      "type": "tou",
+      "basic": 8190,
+      "energy": {
+        "summer": {
+          "light": 125.9,
+          "mid": 173.1,
+          "peak": 237.5
+        },
+        "springAutumn": {
+          "light": 125.9,
+          "mid": 143.2,
+          "peak": 160.3
+        },
+        "winter": {
+          "light": 133,
+          "mid": 173.1,
+          "peak": 212.4
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highC_1",
+      "label": "산업용(을) 고압C 선택Ⅰ",
+      "type": "tou",
+      "basic": 6590,
+      "energy": {
+        "summer": {
+          "light": 130.9,
+          "mid": 178.7,
+          "peak": 242.7
+        },
+        "springAutumn": {
+          "light": 130.9,
+          "mid": 148.7,
+          "peak": 165.9
+        },
+        "winter": {
+          "light": 137.8,
+          "mid": 178.3,
+          "peak": 218
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highC_2",
+      "label": "산업용(을) 고압C 선택Ⅱ",
+      "type": "tou",
+      "basic": 7520,
+      "energy": {
+        "summer": {
+          "light": 126.2,
+          "mid": 174,
+          "peak": 238
+        },
+        "springAutumn": {
+          "light": 126.2,
+          "mid": 144,
+          "peak": 161.2
+        },
+        "winter": {
+          "light": 133.1,
+          "mid": 173.6,
+          "peak": 213.3
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "industrial_b_highC_3",
+      "label": "산업용(을) 고압C 선택Ⅲ",
+      "type": "tou",
+      "basic": 8090,
+      "energy": {
+        "summer": {
+          "light": 125.1,
+          "mid": 172.9,
+          "peak": 236.9
+        },
+        "springAutumn": {
+          "light": 125.1,
+          "mid": 142.9,
+          "peak": 160.1
+        },
+        "winter": {
+          "light": 132,
+          "mid": 172.5,
+          "peak": 212.2
+        }
+      },
+      "note": "계약전력 300kW 이상"
+    },
+    {
+      "id": "manual",
+      "label": "직접입력",
+      "type": "flat",
+      "basic": 0,
+      "energy": {
+        "summer": 0,
+        "springAutumn": 0,
+        "winter": 0
+      },
+      "note": "직접 단가를 입력합니다."
+    }
+  ]
+}
