@@ -101,3 +101,16 @@ h4{margin:8px 0 6px;font-size:14px}
   .formula-note>span{font-size:13px}
   #safetyTraining .report-table{min-width:560px}
 }
+
+/* v10.9.0 안전관리 교육 실무교재판 */
+.training-index{padding:12px 14px}
+.training-index h3{margin:0 0 8px;font-size:14px}
+.training-chip-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.training-chip-wrap span{display:inline-block;padding:6px 9px;border:1px solid #d7dee8;border-radius:999px;background:#f8fafc;font-size:12px;font-weight:700;color:#344054}
+.check-list{list-style:none;padding-left:0!important}
+.check-list li{position:relative;padding-left:25px}
+.check-list li:before{content:'□';position:absolute;left:2px;top:0;font-weight:800;color:#175cd3}
+.summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.summary-item{display:flex;flex-direction:column;gap:4px;padding:10px;border:1px solid #dfe6ee;border-radius:10px;background:#fafcff}
+.summary-item b{font-size:13px;color:#175cd3}.summary-item span{font-size:12px;line-height:1.5;color:#344054}
+@media(max-width:760px){.summary-grid{grid-template-columns:1fr}.training-chip-wrap span{font-size:11px;padding:5px 8px}}

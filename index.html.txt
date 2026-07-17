@@ -189,164 +189,140 @@
 
     <section id="safetyTraining" class="panel">
       <div class="card training-header">
-        <h2>🦺 전기안전관리자 특별과정 집체교육</h2>
-        <p class="help">강의 메모를 바탕으로 현장에서 빠르게 확인할 수 있도록 핵심 내용, 판단 이유, 측정 절차와 주의사항 순서로 정리했습니다.</p>
-        <p class="basis"><b>적용 주의:</b> 본 자료는 교육 및 현장 점검을 위한 참고자료입니다. 실제 시공·판정·정비 시에는 해당 설비의 단선결선도, 제조사 사양, 최신 KEC 및 검사기관 기준을 우선 확인하십시오.</p>
+        <h2>🦺 전기안전관리자 특별과정 집체교육 · 실무교재판</h2>
+        <p class="help">집체교육 메모를 바탕으로 KEC 용어, 현장 판정 원리, 측정 절차, 오판 방지사항을 보강했습니다. 계산식보다 “왜 그렇게 판단하는가”를 중심으로 구성했습니다.</p>
+        <p class="basis"><b>적용 원칙:</b> 본 내용은 현장 점검과 교육을 위한 실무 보조자료입니다. 최종 시공·정비·적합 판정은 설비의 사용전압, 접지계통, 단선결선도, 제조사 지침, 최신 KEC 및 검사기관 기준을 함께 확인하십시오.</p>
       </div>
 
-      <details open><summary>1. 접지의 목적과 현장 판단</summary><div class="training-body">
-        <h3 class="training-title">■ 접지를 설치하는 이유</h3>
+      <div class="card training-index">
+        <h3>빠른 확인</h3>
+        <div class="training-chip-wrap">
+          <span>접지·등전위본딩</span><span>TN·TT·IT</span><span>접지저항 측정</span><span>절연저항</span><span>누설전류</span><span>차단기 명판</span><span>SPD·LA</span><span>열화상</span><span>진상용 콘덴서</span>
+        </div>
+      </div>
+
+      <details open><summary>1. 접지의 목적과 감전보호 원리</summary><div class="training-body">
+        <h3 class="training-title">■ 접지는 무엇을 보호하는가</h3>
         <ul>
-          <li><b>감전 예방:</b> 누전이나 지락으로 외함에 전압이 발생했을 때 사람이 접촉하는 전압을 낮춥니다.</li>
-          <li><b>보호장치 동작 확보:</b> 고장전류가 되돌아갈 경로를 만들어 ELB·RCD 또는 과전류차단기가 동작할 수 있도록 합니다.</li>
-          <li><b>전위상승 억제:</b> 접지저항을 낮춰 고장 시 외함과 접지망의 전위상승을 줄입니다.</li>
-          <li><b>기준전위 확보:</b> 변압기 중성점과 전력계통의 전압 기준점을 안정시킵니다.</li>
-          <li><b>이상전압 방전:</b> LA·SPD가 제한한 낙뢰·개폐서지를 접지로 방전합니다.</li>
+          <li><b>고장보호:</b> 절연파괴로 노출도전성부분에 전압이 나타날 때 보호도체(PE)를 통해 고장전류의 귀로를 확보합니다.</li>
+          <li><b>접촉전압 저감:</b> 사람이 동시에 접촉할 수 있는 도전성부분 사이의 전위차를 낮춥니다.</li>
+          <li><b>자동전원차단(ADS) 지원:</b> RCD·ELB 또는 과전류보호장치가 정해진 시간 안에 동작할 수 있도록 고장회로를 구성합니다.</li>
+          <li><b>계통 기준전위 확보:</b> 변압기 중성점 등 전력계통의 기준점을 안정시킵니다.</li>
+          <li><b>이상전압 처리:</b> LA·SPD가 제한한 낙뢰·개폐서지 전류를 접지계통으로 방류합니다.</li>
         </ul>
-        <div class="formula-note"><b>이해용 관계식</b><span>V = I × R</span><p>같은 고장전류가 흐른다면 접지저항이 낮을수록 전위상승과 접촉전압이 작아집니다. 계산 자체보다 “접지저항을 낮게 유지하는 이유”를 이해하기 위한 식입니다.</p></div>
-        <h3 class="training-title">■ 실무에서 함께 확인할 사항</h3>
-        <ul>
-          <li>측정값뿐 아니라 이전 측정값과 비교하여 증가 추세를 확인합니다.</li>
-          <li>접지선 단선, 단자 풀림, 부식, 접지단자함의 본딩 상태를 함께 점검합니다.</li>
-          <li>접지가 양호해도 보호장치의 종류와 동작조건이 맞지 않으면 자동 차단이 보장되지 않습니다.</li>
-        </ul>
-        <p class="memory-line"><b>한 줄 정리:</b> 접지는 단순히 저항값을 낮추는 작업이 아니라, 사람의 접촉전압을 낮추고 보호장치가 동작할 수 있는 고장전류 경로를 확보하는 설비입니다.</p>
+        <div class="formula-note"><b>원리 이해</b><span>U = I × Z</span><p>고장전류와 고장경로 임피던스에 의해 접촉전압이 발생합니다. 접지저항만 낮추는 것으로 끝나는 것이 아니라, 보호도체 연속성·등전위본딩·차단장치의 동작조건을 함께 만족해야 합니다.</p></div>
+        <div class="warning-box"><b>오해 주의</b><p>“접지저항이 낮으면 무조건 안전하다”는 표현은 불완전합니다. 접지저항이 양호해도 PE 단선, 잘못된 N·PE 결합, 부적절한 RCD 감도 또는 차단시간 때문에 감전보호가 실패할 수 있습니다.</p></div>
+        <p class="memory-line"><b>핵심:</b> 접지는 전위를 0V로 만드는 설비가 아니라, 위험한 전위차를 줄이고 보호장치가 신속히 동작하도록 만드는 보호시스템입니다.</p>
       </div></details>
 
       <details><summary>2. 계통접지와 TN·TT·IT 방식</summary><div class="training-body">
-        <p><b>계통접지</b>는 변압기 중성점 등 전력계통의 한 점을 대지와 연결하여 전압 기준점을 만들고, 고·저압 혼촉이나 지락 시 보호장치가 동작하도록 하는 접지입니다.</p>
+        <p><b>계통접지</b>는 전원계통의 한 점, 일반적으로 변압기 중성점을 대지와 연결하는 것입니다. 계통 구분은 접지극 개수보다 <b>전원측 접지상태와 노출도전성부분의 연결방법</b>으로 판단합니다.</p>
         <div class="system-grid">
-          <div class="system-box"><h3>TT 방식</h3><ul><li>전원측 중성점은 전원측에서 접지합니다.</li><li>수용가 설비 외함은 수용가가 설치한 자체 접지극과 PE에 연결합니다.</li><li>고장전류가 대지를 포함한 경로로 귀환하므로 전류가 작을 수 있어 RCD·ELB의 역할이 중요합니다.</li></ul><p class="memory-line"><b>쉽게:</b> 전원측은 N의 기준점을 만들고, 수용가는 자체 PE 접지망을 구축합니다.</p></div>
-          <div class="system-box"><h3>TN 방식</h3><ul><li>변압기 중성점을 접지합니다.</li><li>그 접지점과 수용가 외함을 PE 또는 PEN 도체로 금속적으로 연결합니다.</li><li>지락전류가 PE·PEN을 통해 변압기 중성점으로 되돌아가므로 큰 고장전류로 신속한 차단을 기대할 수 있습니다.</li></ul><p class="memory-line"><b>쉽게:</b> 변압기에서부터 고장전류의 금속 귀로가 함께 공급됩니다.</p></div>
-          <div class="system-box"><h3>IT 방식</h3><ul><li>전원측을 대지와 절연하거나 높은 임피던스를 통해 접지합니다.</li><li>설비 외함은 접지합니다.</li><li>첫 번째 지락 때 즉시 정전하지 않고 운전을 유지할 수 있지만 절연감시장치와 고장점 탐지가 필요합니다.</li></ul><p class="memory-line"><b>쉽게:</b> 첫 지락은 감시하면서 운전하고, 두 번째 고장 전에 반드시 조치합니다.</p></div>
+          <div class="system-box"><h3>TT 계통</h3><ul><li>전원측 중성점은 전원측 접지극에 접지합니다.</li><li>수용가의 노출도전성부분은 수용가 자체 접지극과 PE에 연결합니다.</li><li>지락전류 귀로에 대지가 포함되어 고장전류가 작을 수 있으므로 RCD에 의한 보호가 핵심입니다.</li></ul><p class="memory-line"><b>쉽게:</b> 전원측 접지와 수용가 보호접지가 서로 독립된 구조입니다.</p></div>
+          <div class="system-box"><h3>TN 계통</h3><ul><li>변압기 중성점을 접지합니다.</li><li>그 접지점과 수용가의 노출도전성부분을 PE 또는 PEN으로 금속적으로 연결합니다.</li><li>지락전류가 금속 귀로를 통해 변압기로 돌아가므로 큰 고장전류로 신속한 차단을 기대할 수 있습니다.</li></ul><p class="memory-line"><b>쉽게:</b> 전원에서부터 고장전류가 돌아갈 금속 경로가 함께 제공됩니다.</p></div>
+          <div class="system-box"><h3>IT 계통</h3><ul><li>전원측을 대지와 절연하거나 높은 임피던스를 통해 접지합니다.</li><li>노출도전성부분은 접지합니다.</li><li>첫 번째 지락 시 운전을 유지할 수 있으나 절연감시장치(IMD)와 신속한 고장점 탐지가 필요합니다.</li></ul><p class="memory-line"><b>쉽게:</b> 첫 지락은 경보 후 유지할 수 있지만 두 번째 고장 전에 반드시 제거합니다.</p></div>
         </div>
-        <div class="table-wrap"><table class="report-table"><thead><tr><th>구분</th><th>TT</th><th>TN</th><th>IT</th></tr></thead><tbody><tr><th>보호접지 경로</th><td>수용가 자체 접지극</td><td>PE/PEN 금속 귀로</td><td>외함 접지극</td></tr><tr><th>지락전류 특성</th><td>비교적 작을 수 있음</td><td>비교적 크게 흐름</td><td>첫 지락은 작음</td></tr><tr><th>중점 보호수단</th><td>RCD·ELB</td><td>과전류차단기·RCD</td><td>절연감시·고장점 탐지</td></tr></tbody></table></div>
-        <p class="basis"><b>판정 핵심:</b> 접지극의 개수나 현장 명칭만으로 TT·TN을 판단하지 않습니다. N과 PE가 어디에서 연결되고, 지락전류가 어떤 도체를 통해 변압기로 되돌아가는지를 확인해야 합니다.</p>
+        <div class="table-wrap"><table class="report-table"><thead><tr><th>구분</th><th>TT</th><th>TN</th><th>IT</th></tr></thead><tbody><tr><th>고장전류 귀로</th><td>대지 포함</td><td>PE/PEN 금속 귀로</td><td>첫 지락은 매우 제한적</td></tr><tr><th>주요 보호수단</th><td>RCD·등전위본딩</td><td>과전류보호장치·RCD</td><td>IMD·고장점 탐지</td></tr><tr><th>현장 판정 핵심</th><td>수용가 자체 접지극</td><td>전원 중성점과 PE의 금속 연결</td><td>전원 대지 절연 또는 임피던스 접지</td></tr></tbody></table></div>
+        <p class="basis"><b>판정 순서:</b> 단선결선도 확인 → 변압기 중성점 접지 확인 → N·PE 결합 위치 확인 → PE/PEN의 공급 여부 확인 → 지락전류 귀로 확인.</p>
       </div></details>
 
-      <details><summary>3. 기흥 사업소 접지시스템과 등전위본딩</summary><div class="training-body">
-        <h3 class="training-title">■ 현장 구성</h3>
-        <p>기흥 사업소는 현장 관리 기준상 <b>TT 접지방식</b>으로 운용하며, 변압기 중성점은 전원측 접지와 연결하고 수용가 내부의 보호접지는 자체 접지망으로 구성합니다.</p>
-        <p>주접지단자함(MET)에는 설비 외함, 피뢰기(LA), SPD, 철골, 계장접지 등 보호 목적의 접지도체를 모아 <b>등전위본딩</b>합니다.</p>
-        <h3 class="training-title">■ 등전위본딩의 실무 의미</h3>
-        <ul>
-          <li>설비마다 서로 다른 전위가 발생하는 것을 줄여 접촉전압과 설비 간 전위차를 낮춥니다.</li>
-          <li>접지경로를 한곳에서 확인할 수 있어 점검과 측정이 쉬워집니다.</li>
-          <li>여러 접지극이 공통망으로 연결되면 합성 접지저항이 낮아질 수 있습니다.</li>
-          <li>공통접지망에서 고장전류 귀로의 임피던스가 낮아지면 고장전류가 증가하여 보호장치 동작에 유리할 수 있습니다.</li>
-        </ul>
-        <div class="warning-box"><b>주의</b><p>MET에서 보호접지를 본딩하는 것과 부하측 분전반에서 N선과 PE선을 임의로 다시 연결하는 것은 전혀 다른 작업입니다. 부하측 N·PE 재결합은 정상전류가 접지계통으로 흐르는 원인이 될 수 있습니다.</p></div>
-        <p class="memory-line"><b>현장 확인 순서:</b> 단선결선도 → 변압기 중성점 접지 → MET 연결상태 → N·PE 결합 위치 → 지락전류 귀로.</p>
+      <details><summary>3. 주접지단자(MET)와 등전위본딩</summary><div class="training-body">
+        <h3 class="training-title">■ MET의 역할</h3>
+        <p>주접지단자(MET)는 보호도체, 접지도체, 주요 등전위본딩도체를 한 지점에서 연결하고 점검할 수 있도록 구성한 접지계통의 중심점입니다.</p>
+        <ul><li>설비 외함, 철골, 케이블트레이, 피뢰·서지보호 접지 등 현장 설계에 따른 도체를 본딩합니다.</li><li>설비 사이의 전위차를 줄여 접촉전압을 낮춥니다.</li><li>점검 시 접지경로의 연속성과 접속상태를 체계적으로 확인할 수 있습니다.</li></ul>
+        <div class="warning-box"><b>중요</b><p>MET에서 보호도체를 본딩하는 것과 부하측 분전반에서 N과 PE를 다시 연결하는 것은 다릅니다. 부하측 N·PE 재결합은 정상 중성선전류를 PE·철골·배관으로 분류시켜 누전차단기 오동작, 전식, 감전위험의 원인이 될 수 있습니다.</p></div>
+        <h3 class="training-title">■ 현장 확인사항</h3>
+        <ul><li>접지단자 풀림, 부식, 변색, 과열 및 도체 단선 여부</li><li>PE와 N의 식별 및 결합 위치</li><li>점퍼를 통한 공통접지망 구성과 측정 시 병렬경로 영향</li><li>피뢰설비·SPD 접지와 보호접지의 본딩상태</li></ul>
       </div></details>
 
       <details><summary>4. 접지저항 측정 목적과 2단자법</summary><div class="training-body">
         <h3 class="training-title">■ 측정 목적</h3>
-        <ul><li>접지저항 변화와 접지극 열화 확인</li><li>접지도체 단선, 단자 풀림, 접속부 부식 확인</li><li>접촉전압 억제와 지락보호 시스템의 동작 가능성 확인</li></ul>
-        <h3 class="training-title">■ 2단자법의 원리</h3>
-        <p>2단자법은 측정 대상 접지와 이미 접지된 보조점을 이용하여 <b>폐회로의 합성저항</b>을 측정하는 간이 방법입니다.</p>
-        <div class="formula-note"><b>이해용 관계</b><span>측정값 ≈ 주접지저항 + 보조접지저항</span><p>다른 병렬경로가 없고 보조접지저항을 알고 있을 때에만 주접지저항을 근사할 수 있습니다.</p></div>
-        <h3 class="training-title">■ 분전반 측정 절차</h3>
-        <ol class="step-list"><li>회로와 설비 상태를 확인하고 측정 중 위험이 없는지 판단합니다.</li><li>분전반의 중성선과 접지단자 중 측정 목적에 맞는 지점을 확인합니다.</li><li>접지저항계의 P·C 공통 리드와 E 리드를 제조사 방법에 따라 연결합니다.</li><li>측정 후 보조접지의 영향과 병렬 접지경로 유무를 함께 해석합니다.</li></ol>
-        <h3 class="training-title">■ 공통접지망에서 낮게 측정되는 이유</h3>
-        <p>접지단자함의 점퍼와 본딩을 분리하지 않으면 여러 접지극, 철골, 중성점 접지 등이 병렬로 연결된 전체 합성저항을 측정하게 됩니다. 따라서 개별 제3종 접지극의 실제 저항보다 낮은 값이 나올 수 있습니다.</p>
-        <div class="warning-box"><b>측정 주의</b><p>접지단자함의 분리 작업은 반드시 정전 및 안전성 검토 후 시행합니다. 운전 중 임의로 중성점 접지나 보호접지를 분리하면 감전·설비손상 위험이 있습니다.</p></div>
-        <p class="memory-line"><b>한 줄 정리:</b> 2단자법의 숫자는 항상 개별 접지극 값이 아니라, 측정 시 형성된 전체 귀로의 합성저항일 수 있습니다.</p>
+        <ul><li>접지극과 접지도체의 열화·단선·접속불량 확인</li><li>과거 측정값과 비교한 저항 증가 추세 확인</li><li>접촉전압 저감과 보호장치 동작조건 검토를 위한 기초자료 확보</li></ul>
+        <h3 class="training-title">■ 2단자법의 의미</h3>
+        <p>2단자법은 측정 대상 접지와 이미 접지된 다른 도체를 이용해 형성된 <b>폐회로 전체의 합성저항</b>을 측정하는 간이방법입니다.</p>
+        <div class="formula-note"><b>단순화한 관계</b><span>측정값 ≈ 대상 접지저항 + 보조 접지저항</span><p>병렬 접지경로가 없고 보조접지저항을 알고 있을 때에만 대상 접지저항을 근사할 수 있습니다.</p></div>
+        <h3 class="training-title">■ 분전반에서 낮게 측정되는 이유</h3>
+        <p>중성점 접지, 철골, 피뢰설비, 여러 접지극이 MET에서 공통으로 본딩되어 있으면 계측기는 개별 접지극이 아닌 전체 병렬망의 합성저항을 읽을 수 있습니다.</p>
+        <div class="warning-box"><b>작업 주의</b><p>접지 점퍼나 중성점 접지를 임의로 분리하지 마십시오. 분리 측정이 필요하면 정전, 위험성평가, 계통검토와 작업절차를 먼저 수립해야 합니다.</p></div>
+        <p class="memory-line"><b>핵심:</b> 2단자 측정값은 “어느 접지극의 값인지”보다 “측정 순간 어떤 경로가 폐회로를 구성했는지”를 먼저 해석해야 합니다.</p>
       </div></details>
 
-      <details><summary>5. 절연저항 측정</summary><div class="training-body">
-        <h3 class="training-title">■ 측정 전 판단</h3>
-        <ul>
-          <li>전원을 차단하고 무전압 및 잔류전하를 확인합니다.</li>
-          <li>PLC, 인버터, 전자식 계측기, 통신기기, LED 전원장치, SPD·MOV 연결 여부를 확인합니다.</li>
-          <li>전자회로나 SPD·MOV가 포함된 회로는 DC 500V 시험으로 손상될 수 있으므로 제조사 지침에 따라 분리하거나 DC 250V 시험을 적용합니다.</li>
-        </ul>
-        <h3 class="training-title">■ 교육 메모 기준</h3>
-        <ul><li>전자회로가 포함된 설비 또는 전등·전열 분전반은 <b>DC 250V</b>로 측정합니다.</li><li>절연저항은 교육 메모상 <b>1MΩ 이상</b>을 적합 판단 기준으로 설명합니다.</li><li>실제 판정은 회로 사용전압, 설비 종류 및 최신 기준을 확인합니다.</li></ul>
-        <p class="memory-line"><b>측정 순서:</b> 정전 → 부하·전자기기 분리 검토 → 시험전압 선정 → 측정 → 잔류전하 방전 → 원상복구 확인.</p>
+      <details><summary>5. 절연저항 측정과 시험전압 선정</summary><div class="training-body">
+        <h3 class="training-title">■ 측정 전 준비</h3>
+        <ol class="step-list"><li>전원 차단, 무전압 확인, 잔류전하 방전</li><li>PLC, 인버터, 계측기, LED 드라이버, 통신기기, SPD·MOV 등 전자회로 연결 여부 확인</li><li>제조사 지침과 회로 정격에 따라 시험전압 선정 또는 민감기기 분리</li><li>측정 후 잔류전하 방전 및 결선 원상복구 확인</li></ol>
+        <h3 class="training-title">■ 교육 내용의 실무 해석</h3>
+        <ul><li>전자회로나 서지보호소자가 연결된 회로는 DC 500V 인가로 손상될 수 있으므로 <b>DC 250V 적용 또는 민감기기 분리</b>를 검토합니다.</li><li>저압회로 절연저항의 적합기준은 회로의 정격전압과 시험조건에 따라 달라질 수 있으므로 “모든 설비가 무조건 1MΩ”이라고 단정하지 않습니다.</li><li>교육 메모의 1MΩ은 저압설비 현장판정에서 자주 사용하는 관리기준으로 활용하되, 최종 판정은 최신 KEC 표와 설비기준을 확인합니다.</li></ul>
+        <div class="warning-box"><b>고장 방지</b><p>SPD·MOV의 표시전압 또는 최대연속사용전압과 절연저항계 시험전압은 같은 개념이 아닙니다. 단순히 “MOV가 470V이므로 500V에서 반드시 파손된다”고 단정하지 말고 제품 사양과 회로 연결상태를 확인하십시오.</p></div>
       </div></details>
 
       <details><summary>6. 누설전류 측정과 원인 분석</summary><div class="training-body">
-        <h3 class="training-title">■ 측정 방법</h3>
-        <ul>
-          <li><b>활선 상태</b>에서 측정합니다.</li>
-          <li>접지선을 제외하고 단상 2선, 3상 3선, 3상 4선의 모든 충전도체를 한 번에 클램프합니다.</li>
-          <li>정상 부하전류는 벡터합으로 상쇄되고, 대지로 빠져나간 불평형 전류가 표시됩니다.</li>
-          <li>보호접지선 한 가닥만 클램프하면 그 접지경로로 흐르는 전류를 확인할 수 있으나, 병렬 접지경로가 있으면 전체 누설전류와 다를 수 있습니다.</li>
-        </ul>
-        <h3 class="training-title">■ 누설전류의 주요 원인</h3>
-        <ul>
-          <li><b>저항성 누설전류:</b> 절연열화, 오염, 수분침투 등 실제 누전 성분</li>
-          <li><b>용량성 누설전류:</b> 긴 케이블의 대지 정전용량, 노이즈필터, 인버터·전자기기의 Y콘덴서</li>
-          <li>중성선 다중접지에 의한 불평형 전류 또는 순환전류</li>
-          <li>부하측에서 N선과 PE선이 바뀌거나 재결합된 경우</li>
-        </ul>
-        <p><b>R:</b> 저항성·전압과 동상 / <b>L:</b> 유도성·지상 / <b>C:</b> 용량성·진상</p>
-        <div class="warning-box"><b>해석 주의</b><p>용량성 누설전류는 반드시 절연불량을 뜻하지 않습니다. 특히 3상 불평형부하에서는 저항성 누설전류계의 오차가 커질 수 있으므로 절연저항 측정, 부하상태 및 배선구조를 함께 확인합니다.</p></div>
+        <h3 class="training-title">■ 측정 원리</h3>
+        <ul><li><b>활선 상태</b>에서 누설전류계를 사용합니다.</li><li>단상 2선, 3상 3선, 3상 4선 회로의 모든 충전도체를 한 번에 클램프합니다.</li><li>정상적으로 왕복하는 부하전류는 벡터합이 0에 가까워지고, 대지 등 다른 경로로 빠져나간 잔류전류가 표시됩니다.</li><li>PE 한 가닥만 측정하면 그 PE로 흐르는 전류만 확인되며, 철골·배관 등 병렬경로가 있으면 전체 누설전류와 다를 수 있습니다.</li></ul>
+        <h3 class="training-title">■ 발생 원인</h3>
+        <ul><li><b>저항성분:</b> 절연열화, 수분, 오염, 손상 등에 의한 실제 누전</li><li><b>용량성분:</b> 긴 케이블과 대지 사이의 정전용량, 노이즈필터의 Y콘덴서, 인버터·전자기기</li><li><b>배선 이상:</b> 부하측 N·PE 재결합, N·PE 오결선, 중성선 다중접지</li><li><b>불평형·고조파:</b> 3상 4선식의 중성선전류 증가와 측정오차 요인</li></ul>
+        <div class="table-wrap"><table class="report-table"><thead><tr><th>성분</th><th>위상 특성</th><th>판정 포인트</th></tr></thead><tbody><tr><th>R</th><td>전압과 동상</td><td>절연열화 가능성이 높아 우선 추적</td></tr><tr><th>L</th><td>지상</td><td>유도성분과 부하특성 확인</td></tr><tr><th>C</th><td>진상</td><td>필터·케이블 정전용량 가능성 확인</td></tr></tbody></table></div>
+        <p class="basis"><b>판정 원칙:</b> 누설전류 수치 하나만으로 절연불량을 단정하지 말고, 절연저항·회로길이·전자부하 구성·N/PE 결선상태를 함께 확인합니다.</p>
       </div></details>
 
-      <details><summary>7. 차단기 명판과 누전차단기</summary><div class="training-body">
-        <div class="table-wrap"><table class="report-table"><thead><tr><th>표시</th><th>의미</th><th>실무 확인사항</th></tr></thead><tbody><tr><th>A / AT</th><td>정격전류 또는 트립 정격</td><td>부하전류와 전선 허용전류에 적합한지 확인</td></tr><tr><th>AF</th><td>차단기 프레임 정격</td><td>몸체 최대 등급이며 실제 트립전류와 구분</td></tr><tr><th>kA</th><td>정격차단전류</td><td>설치점의 예상단락전류보다 큰지 확인</td></tr><tr><th>V / kV</th><td>정격전압</td><td>계통전압 및 사용범위 확인</td></tr></tbody></table></div>
-        <h3 class="training-title">■ 누전차단기 명판 해석</h3>
-        <ul>
-          <li><b>정격감도전류 30mA:</b> 누전 동작의 기준이 되는 정격값입니다.</li>
-          <li><b>정격부동작전류 15mA:</b> 일반적으로 감도전류의 1/2이며 이 이하에서는 동작하지 않아야 합니다.</li>
-          <li>실제 동작점은 부동작전류와 감도전류 사이에 존재할 수 있으므로 “30mA 제품이 반드시 24mA에서 동작한다”로 고정해 해석하지 않습니다.</li>
-          <li><b>동작시간 0.03초 이내:</b> 고감도 고속형의 대표 정격이며, 0.015초가 고정 동작시간이라는 뜻은 아닙니다.</li>
-          <li>인체 영향은 전류 크기, 통전시간, 경로, 피부상태에 따라 달라지며 수십 mA의 전류도 심실세동 위험이 있습니다.</li>
-        </ul>
-        <p class="memory-line"><b>한 줄 정리:</b> 차단기는 A만 보지 말고 AF·AT·정격전압·정격차단전류·누전감도와 동작시간을 함께 읽어야 합니다.</p>
+      <details><summary>7. 차단기 명판 읽기와 누전차단기 시험</summary><div class="training-body">
+        <div class="table-wrap"><table class="report-table"><thead><tr><th>표시</th><th>의미</th><th>실무 확인</th></tr></thead><tbody><tr><th>AF</th><td>프레임 정격</td><td>차단기 몸체가 수용할 수 있는 최대 등급</td></tr><tr><th>AT / A</th><td>트립 정격·정격전류</td><td>부하전류, 전선 허용전류와의 보호협조</td></tr><tr><th>kA</th><td>정격차단전류</td><td>설치점 예상단락전류 이상인지 확인</td></tr><tr><th>V / kV</th><td>정격전압</td><td>계통전압 이상 및 극수·주파수 확인</td></tr><tr><th>IΔn</th><td>정격감도전류</td><td>감전보호·화재보호 목적에 맞는 감도 선정</td></tr></tbody></table></div>
+        <h3 class="training-title">■ 30mA 누전차단기 해석</h3>
+        <ul><li>정격감도전류가 30mA인 제품은 규정된 시험조건에서 30mA 이하에서 동작해야 합니다.</li><li>정격부동작전류는 일반적으로 정격감도전류의 1/2인 15mA이며, 이 값 이하에서는 동작하지 않아야 합니다.</li><li>실제 동작전류는 15mA 초과 30mA 이하 범위에 있을 수 있으므로 “항상 24mA에서 동작”한다고 고정하지 않습니다.</li><li>0.03초 이내 표시는 고속형 제품의 동작시간 등급이며 실제 시험은 전용 시험기로 동작전류와 동작시간을 각각 확인합니다.</li></ul>
+        <h3 class="training-title">■ 인체 영향</h3>
+        <p>감전위험은 전류 크기뿐 아니라 통전시간, 통전경로, 주파수, 피부상태에 따라 달라집니다. 수십 mA의 교류전류도 심실세동 등 치명적 결과를 일으킬 수 있으므로 보호장치의 신속한 차단이 중요합니다.</p>
+        <div class="warning-box"><b>시험 주의</b><p>TEST 버튼은 기계적·전기적 동작 여부를 확인하는 일상점검 수단이며, 정격감도전류와 동작시간의 정량시험을 대신하지 않습니다.</p></div>
       </div></details>
 
-      <details><summary>8. SPD·MOV·LA·SA와 설치 원칙</summary><div class="training-body">
-        <h3 class="training-title">■ 역할 구분</h3>
-        <ul><li><b>SPD·MOV:</b> 저압 회로에서 낙뢰·개폐서지 등 이상전압을 제한</li><li><b>LA·SA:</b> 고압·특고압 계통에서 이상전압을 제한하고 후단 설비를 보호</li></ul>
-        <h3 class="training-title">■ 병렬과 직렬의 구분</h3>
-        <ul><li><b>전압을 제한하는 장치:</b> 보호대상과 병렬 설치</li><li><b>전류를 차단하는 장치:</b> VCB·ACB·MCCB·ELB처럼 부하전류가 통과하도록 직렬 설치</li></ul>
-        <h3 class="training-title">■ LA의 설치와 정격 이해</h3>
-        <ul>
-          <li>LA는 일반적으로 LBS 후단의 보호대상 전원측에 병렬 설치하여 변압기와 후단 설비를 보호합니다.</li>
-          <li>22.9kV 3상 계통의 대지전압은 이해상 <b>22.9 ÷ √3 ≈ 13.2kV</b>입니다.</li>
-          <li>18kV 정격 LA는 18kV에서 단순히 켜지는 스위치가 아니라, 정상 대지전압과 일시적 과전압을 견디면서 규정된 방전특성으로 서지를 제한하도록 선정된 장치입니다.</li>
-        </ul>
-        <h3 class="training-title">■ 실무 점검</h3>
-        <ul><li>접지선은 가능한 짧고 곧게 시공합니다.</li><li>SPD 상태표시창, 분리기, 접속단자 열화와 접지상태를 확인합니다.</li><li>접지선이 길거나 굴곡이 많으면 배선 인덕턴스로 인해 보호성능이 저하될 수 있습니다.</li></ul>
-        <p class="memory-line"><b>기억하기:</b> 전압 제한 장치는 병렬, 전류 차단 장치는 직렬입니다.</p>
+      <details><summary>8. SPD·MOV·LA·SA의 역할과 설치원칙</summary><div class="training-body">
+        <h3 class="training-title">■ 장치 구분</h3>
+        <ul><li><b>SPD:</b> 저압설비에서 낙뢰·개폐서지에 의한 과도과전압을 제한하는 장치</li><li><b>MOV:</b> SPD 내부에 널리 사용되는 비선형 저항소자</li><li><b>LA:</b> 고압·특고압 계통에서 서지를 제한하여 변압기와 기기를 보호하는 피뢰기</li><li><b>SA:</b> 계통과 제조사 용어에 따라 서지흡수기·서지보호장치를 의미하므로 도면과 사양서를 확인</li></ul>
+        <h3 class="training-title">■ 병렬·직렬 설치</h3>
+        <ul><li>SPD·LA처럼 <b>전압을 제한하는 장치</b>는 보호대상과 병렬로 접속합니다.</li><li>VCB·ACB·MCCB·ELB처럼 <b>회로전류를 개폐·차단하는 장치</b>는 회로에 직렬로 설치합니다.</li></ul>
+        <h3 class="training-title">■ 22.9kV 계통의 LA 이해</h3>
+        <p>22.9kV는 선간전압이며, 중성점이 접지된 3상 계통의 정상 상전압은 약 <b>22.9/√3 = 13.2kV</b>입니다. 18kV급 LA의 정격은 단순한 “18kV 동작스위치”가 아니라, 정상 상전압과 일시적 과전압을 견디면서 정해진 제한전압·방전특성을 확보하도록 선정된 등급입니다.</p>
+        <h3 class="training-title">■ 현장 점검</h3>
+        <ul><li>SPD 상태표시창, 분리기, 백업보호장치와 접속단자 확인</li><li>접지선은 가능한 짧고 직선으로 시공하고 불필요한 루프와 급격한 굴곡을 피함</li><li>LA 접지선, 단자, 애자 오염·균열·누설흔적 및 접지연속성 확인</li></ul>
+        <p class="memory-line"><b>기억:</b> 전압 제한 장치는 병렬, 전류 차단 장치는 직렬입니다.</p>
       </div></details>
 
-      <details><summary>9. 열화상카메라 점검</summary><div class="training-body">
-        <h3 class="training-title">■ 온도값에 영향을 주는 요소</h3>
-        <div class="table-wrap"><table class="report-table"><thead><tr><th>요소</th><th>의미</th><th>현장 주의</th></tr></thead><tbody><tr><th>방사율</th><td>물체가 적외선을 방출하는 정도</td><td>광택 금속은 방사율이 낮아 실제보다 다르게 표시될 수 있음</td></tr><tr><th>반사율</th><td>주변 열원이 표면에서 반사되는 정도</td><td>작업자 체온, 태양광, 히터 등이 고온점처럼 보일 수 있음</td></tr><tr><th>투과율</th><td>보호창·필름을 통과하는 적외선 비율</td><td>일반 아크릴 보호커버는 적외선이 충분히 통과하지 않을 수 있음</td></tr></tbody></table></div>
-        <h3 class="training-title">■ 측정 방법</h3>
-        <ul>
-          <li>가능하면 아크릴 보호커버를 제거하고 안전거리를 확보한 상태에서 촬영합니다.</li>
-          <li>외부 설비는 직사광선과 햇빛 반사의 영향을 피하기 위해 그늘 또는 야간에 측정합니다.</li>
-          <li>습기제거용 히터, 백열전구, 인접 고온체의 대류·전도·복사 영향을 구분합니다.</li>
-          <li>광택 단자나 버스바는 정면보다 약간 비스듬한 각도에서 여러 방향으로 확인하여 반사열 여부를 판단합니다.</li>
-        </ul>
+      <details><summary>9. 열화상카메라 측정과 3상 비교법</summary><div class="training-body">
+        <div class="table-wrap"><table class="report-table"><thead><tr><th>설정·환경</th><th>영향</th><th>현장 대응</th></tr></thead><tbody><tr><th>방사율</th><td>표면의 적외선 방출특성</td><td>광택 금속은 테이프·도료 등 기준면 활용 검토</td></tr><tr><th>반사온도</th><td>주변 열원이 표면에 반사</td><td>측정각도를 바꾸어 고온점 이동 여부 확인</td></tr><tr><th>투과율</th><td>보호창을 통과하는 적외선</td><td>일반 아크릴은 측정창으로 부적합할 수 있음</td></tr><tr><th>부하율</th><td>전류에 따라 발열 변화</td><td>동일 부하·동일 위치끼리 비교</td></tr></tbody></table></div>
         <h3 class="training-title">■ 3상 비교법</h3>
-        <ul><li>동일 부하조건에서 L1·L2·L3의 같은 위치를 비교합니다.</li><li>3상 리액터의 중앙 코일은 방열조건이 불리하여 양쪽보다 약간 높을 수 있습니다.</li><li>SP1과 SP3의 온도차가 약 10℃ 이상이면 부하전류, 상불평형, 단자 체결, 접촉저항, 환기상태를 확인합니다.</li></ul>
-        <p class="memory-line"><b>한 줄 정리:</b> 열화상은 높은 온도를 찾는 장비가 아니라, 동일 조건의 상·부품과 비교하여 비정상적인 온도차를 찾는 장비입니다.</p>
+        <ul><li>R·S·T상의 동일 부품, 동일 위치를 비교합니다.</li><li>상간 온도차가 크면 먼저 각 상 전류와 부하불평형을 확인합니다.</li><li>전류가 비슷한데 특정 단자만 높으면 체결불량·산화·접촉저항 증가를 의심합니다.</li><li>3상 리액터 중앙 코일은 방열조건 때문에 외측 코일보다 다소 높을 수 있으므로 구조적 특성과 전류를 함께 봅니다.</li></ul>
+        <p class="memory-line"><b>핵심:</b> 절대온도 하나보다 동일 조건의 상간·부품간 온도차와 시간에 따른 상승추세가 중요합니다.</p>
       </div></details>
 
-      <details><summary>10. 진상용 콘덴서 설치 위치와 점검</summary><div class="training-body">
-        <p><b>진상용 콘덴서</b>는 유도성 부하가 필요로 하는 무효전력을 부하 가까이에서 공급하여 역률을 개선하고, 선로전류·전압강하·손실을 줄입니다.</p>
-        <div class="table-wrap"><table class="report-table"><thead><tr><th>설치 방식</th><th>경제성</th><th>유지보수</th><th>개선 효과</th><th>실무 특징</th></tr></thead><tbody><tr><th>수전 모선 집중 설치</th><td>좋음</td><td>쉬움</td><td>작음</td><td>설치비가 적고 관리가 쉽지만 말단 선로전류 감소 효과는 제한적</td></tr><tr><th>고압측·부하측 분산 설치</th><td>보통</td><td>보통</td><td>보통</td><td>경제성과 역률개선 효과의 균형이 좋음</td></tr><tr><th>부하 말단 개별 설치</th><td>낮음</td><td>어려움</td><td>큼</td><td>전동기 가까이 설치하여 선로손실과 전압강하 감소 효과가 가장 큼</td></tr></tbody></table></div>
-        <h3 class="training-title">■ 실무 주의사항</h3>
-        <ul>
-          <li>콘덴서는 부하와 병렬로 설치합니다.</li>
-          <li>전동기 개별 설치 시 콘덴서가 전동기와 함께 투입·차단되도록 구성하여 무부하 과보상을 방지합니다.</li>
-          <li>과도한 용량은 진상역률과 전압상승을 유발할 수 있으므로 부하변동에 맞춰 단계제어합니다.</li>
-          <li>고조파가 많은 계통은 직렬리액터와 공진 가능성을 검토합니다.</li>
-          <li>정전 후에도 잔류전압이 남을 수 있으므로 방전시간을 확보하고 전압을 확인한 뒤 작업합니다.</li>
-          <li>외함 팽창, 누유, 이상음, 단자 과열, 전류 불평형, 퓨즈 단선 및 리액터 과열을 점검합니다.</li>
+      <details><summary>10. 진상용 콘덴서의 설치와 점검</summary><div class="training-body">
+        <p>진상용 콘덴서는 유도성 부하가 소비하는 무효전력을 부하 가까이에서 공급하여 역률을 개선하고 선로전류, 전압강하와 손실을 줄입니다.</p>
+        <div class="table-wrap"><table class="report-table"><thead><tr><th>설치 위치</th><th>장점</th><th>주의점</th></tr></thead><tbody><tr><th>수전 모선 집중</th><td>설치·유지보수 용이</td><td>말단 선로전류 감소효과는 제한적</td></tr><tr><th>부하군 분산</th><td>효과와 유지보수의 균형</td><td>제어단계와 부하변동 검토</td></tr><tr><th>전동기 개별</th><td>선로손실·전압강하 저감 효과 큼</td><td>전동기와 동시 개폐, 자기여자·과보상 주의</td></tr></tbody></table></div>
+        <ul><li>콘덴서는 부하와 병렬로 설치합니다.</li><li>부하가 정지했는데 콘덴서만 남지 않도록 개폐연동을 확인합니다.</li><li>고조파가 많은 계통은 직렬리액터 정격과 공진조건을 검토합니다.</li><li>외함 팽창, 누유, 이상음, 단자 과열, 퓨즈 단선, 상전류 불평형을 점검합니다.</li><li>정전 후 잔류전압을 방전하고 무전압 확인 후 작업합니다.</li></ul>
+      </div></details>
+
+      <details><summary>11. 현장 오판 방지 체크리스트</summary><div class="training-body">
+        <ul class="check-list">
+          <li>접지저항 수치만으로 접지계통의 안전성을 단정하지 않는다.</li>
+          <li>TT·TN은 접지극 개수가 아니라 N·PE 연결과 고장전류 귀로로 구분한다.</li>
+          <li>부하측에서 N과 PE를 임의로 연결하지 않는다.</li>
+          <li>2단자 접지저항 측정값을 개별 접지극 저항으로 바로 해석하지 않는다.</li>
+          <li>전자기기 연결상태를 확인하지 않고 절연저항계 DC 500V를 인가하지 않는다.</li>
+          <li>누설전류가 크다는 이유만으로 실제 절연불량이라고 단정하지 않는다.</li>
+          <li>30mA 누전차단기가 반드시 24mA에서 동작한다고 고정해석하지 않는다.</li>
+          <li>LA 18kV를 “18kV가 넘으면 바로 켜지는 장치”로 설명하지 않는다.</li>
+          <li>열화상 온도값은 방사율·반사·부하율을 확인한 뒤 판정한다.</li>
         </ul>
-        <p class="memory-line"><b>한 줄 정리:</b> 부하 말단 설치는 효과가 가장 크지만 설치 수량과 유지보수 대상이 늘어나므로 현장 여건에 맞춰 분산 적용합니다.</p>
       </div></details>
 
-      <details><summary>11. CNCV 계열 케이블의 동심중성선(CN)</summary><div class="training-body">
-        <h3 class="training-title">■ CN의 역할</h3>
-        <ul><li>절연체 외부에 동심 형태로 배치되어 전계 차폐와 접지 연속성을 확보합니다.</li><li>계통 구성에 따라 중성선 또는 지락전류 귀로의 일부 역할을 할 수 있습니다.</li><li>케이블 차폐층과 접지계통을 안정된 전위로 유지하는 데 사용됩니다.</li></ul>
-        <div class="warning-box"><b>실무 주의</b><p>CN을 단순한 보조선으로 생각해 임의 절단하거나 접속을 생략하면 안 됩니다. 케이블 종류, 계통접지 방식, 단말처리 및 제조사 시공기준에 따라 접지·본딩 방법을 확인해야 합니다.</p></div>
+      <details><summary>12. 교육 핵심 요약</summary><div class="training-body">
+        <div class="summary-grid">
+          <div class="summary-item"><b>접지</b><span>전위차 저감 + 고장전류 귀로 + 보호장치 동작</span></div>
+          <div class="summary-item"><b>TT</b><span>수용가 자체 PE 접지, RCD 역할 중요</span></div>
+          <div class="summary-item"><b>TN</b><span>PE/PEN 금속 귀로로 큰 고장전류 확보</span></div>
+          <div class="summary-item"><b>절연저항</b><span>시험전압보다 먼저 민감기기 연결상태 확인</span></div>
+          <div class="summary-item"><b>누설전류</b><span>저항성·용량성·배선 이상을 구분해 해석</span></div>
+          <div class="summary-item"><b>차단기</b><span>AF·AT·전압·차단전류·감도·시간을 함께 확인</span></div>
+          <div class="summary-item"><b>SPD·LA</b><span>전압 제한장치이므로 병렬 설치</span></div>
+          <div class="summary-item"><b>열화상</b><span>절대온도보다 동일조건 비교와 추세가 핵심</span></div>
+        </div>
       </div></details>
     </section>
 
@@ -376,8 +352,8 @@
     <section class="notice"><strong>주의</strong> 본 도구는 KEC, 한전 요금표, 국내 표준 자재 기준을 활용한 실무 보조용입니다. 최종 설계·시공 전 최신 규정, 포설조건, 제조사 치수, 사내 기준을 확인하세요.</section>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="database.js?v=10.8.0"></script>
-  <script src="script.js?v=10.8.0"></script>
+  <script src="database.js?v=10.9.0"></script>
+  <script src="script.js?v=10.9.0"></script>
   <script>
     (function () {
       function showUpdateNotice(registration) {
