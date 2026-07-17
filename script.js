@@ -90,7 +90,7 @@ async function loadTariffJson(){
 }
 
 function init(){
-  initTabs(); initConverter(); initMaterial(); initConduit(); initCable(); initTerminalBlock(); initSaving(); initTariffAdmin(); initSafety();
+  initTabs(); initConverter(); initMaterial(); initConduit(); initCable(); initTerminalBlock(); initSaving(); initTariffAdmin();
 }
 document.addEventListener('DOMContentLoaded', async()=>{ await loadTariffJson(); init(); });
 
@@ -640,64 +640,3 @@ function copyElementText(id){const el=$(id); if(!el) return; navigator.clipboard
 function copySection(btn){const h=btn.closest('h4'); let txt=h.innerText.replace('복사','').trim(); let next=h.nextElementSibling; if(next) txt+='\n'+next.innerText; navigator.clipboard?.writeText(txt).then(()=>alert('복사했습니다.')).catch(()=>alert('복사에 실패했습니다.'));}
 function printSavingReport(){window.print();}
 function exportSavingExcel(){const report=$('savingReport'); if(!report) return alert('먼저 결과를 산출하세요.'); const html=`<html><head><meta charset="utf-8"></head><body>${report.innerHTML}</body></html>`; const blob=new Blob([html],{type:'application/vnd.ms-excel'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='전력절감_검토보고서.xls'; a.click(); URL.revokeObjectURL(a.href);}
-
-
-// ===== Electrical Safety Field Guide =====
-const SAFETY_GUIDE = [
-  {category:'절연·누설', title:'절연저항 측정 기본 절차', tags:['절연저항','메거','검전','LOTO'], level:'KEC 기준', summary:'차단 → 잠금·표찰 → 검전 → 잔류전하 방전 → 민감기기 분리 → 측정 → 재방전 → 복구 순서로 진행합니다.', why:'절연저항계는 직류 시험전압을 인가하므로 활선 오판, 잔류전하, 전자회로 연결 상태가 인명사고나 기기 손상으로 이어질 수 있습니다.', steps:['차단기 OFF 및 재투입 방지','검전기로 무전압 확인','콘덴서·인버터 DC 링크 등 잔류전하 방전 확인','SPD·PLC·HMI·인버터 등 전자기기 연결 여부 확인','측정 대상 도체를 필요한 범위에서 분리','상간 및 각 상-PE 측정','측정 후 피시험체 방전','결선·토크·상순서 복구 확인'], caution:'시험전압과 합격기준은 회로 정격전압, 연결기기 및 최신 기준에 따라 선택합니다.', source:'KEC 132 및 2025 전기기술 질의회신 사례집'},
-  {category:'절연·누설', title:'인버터 설비 절연저항 측정', tags:['인버터','VFD','500V','250V','모터'], level:'제조사 확인', summary:'판단 기준은 “인버터 설비인가”가 아니라 “메거 전압이 인버터 내부에 인가되는가”입니다.', why:'인버터 내부의 정류부, DC 링크, IGBT, MOV, EMI 필터는 일반 배선과 동일하게 메거 전압을 직접 인가하는 대상이 아닙니다.', steps:['인버터 입력 R/S/T와 출력 U/V/W를 제조사 절차에 따라 분리','인버터와 완전히 분리된 모터·모터케이블은 통상 500V급 시험 검토','인버터 본체나 연결 상태 회로에는 임의로 메거를 인가하지 않음','측정 전·후 DC 링크 방전시간 준수'], caution:'정확한 시험전압·단자 단락방법은 해당 인버터와 모터 제조사 매뉴얼을 최우선으로 합니다.', source:'2025 사례집의 패키지 에어컨·절연저항 질의 및 제조사 일반 지침'},
-  {category:'절연·누설', title:'누설전류 클램프 측정', tags:['누설전류','클램프','ZCT','활선'], level:'실무 참고', summary:'정상 부하전류가 서로 상쇄되도록 모든 충전도체를 한꺼번에 클램프하고, PE는 제외합니다.', why:'단상 2선, 3상 3선, 3상 4선의 모든 충전도체 전류 합은 정상 시 거의 0이며, 남는 벡터합이 대지로 빠지는 누설성분입니다.', steps:['활선작업 안전조치','단상은 L·N, 삼상은 R·S·T, 3상4선은 R·S·T·N을 함께 클램프','접지선 단독 측정은 PE로 흐르는 전류 확인용','부하 ON/OFF 비교로 회로 분리'], caution:'전자기기 필터의 용량성 누설이 포함될 수 있으므로 수치만으로 절연불량을 단정하지 않습니다.', source:'KEC 전로 절연성능 및 2025 누설전류 사례'},
-  {category:'절연·누설', title:'절연저항과 습도·오염의 관계', tags:['습도','오염','IMD','절연열화'], level:'실무 참고', summary:'비·결로·염분·분진이 많으면 표면 누설이 증가해 절연저항이 일시적으로 낮아질 수 있습니다.', why:'절연재 표면의 수분과 오염물이 도전성 경로를 형성하기 때문입니다.', steps:['온도·습도·날씨 기록','청소·건조 전후 비교','동일 시험전압·동일 측정시간으로 추세관리','급격한 저하는 구간 분리 측정'], caution:'건조 후 회복되더라도 반복 저하는 방수·환기·히터·케이블 단말 상태를 점검합니다.', source:'2025 IMD 절연저항 사례'},
-  {category:'접지', title:'접지를 설치하는 이유', tags:['접지','감전','자동차단','보호접지'], level:'KEC 기준', summary:'접지는 금속 외함을 단순히 땅에 연결하는 것이 아니라, 접촉전압을 낮추고 고장전류 귀로를 만들어 보호장치를 정해진 시간 안에 동작시키는 보호시스템입니다.', why:'지락 시 외함 전위상승을 제한하고, PE·PEN 또는 대지를 통한 고장루프로 충분한 전류가 흐르게 해야 자동전원차단이 가능합니다.', steps:['계통접지 방식(TN·TT·IT) 확인','노출도전부 보호도체 연결','주접지단자와 등전위본딩 확인','자동차단 조건 검토'], caution:'접지저항 하나만 낮다고 감전보호가 완성되는 것은 아닙니다. 계통방식·차단시간·접촉전압을 함께 봅니다.', source:'KEC 140, 211 및 2023 접지 질의회신'},
-  {category:'접지', title:'등전위본딩이 필요한 이유', tags:['등전위','본딩','접촉전압','전위차'], level:'KEC 기준', summary:'사람이 동시에 만질 수 있는 금속부분 사이의 전위차를 줄여 위험한 접촉전압을 제한합니다.', why:'감전 위험은 각 물체의 절대전위보다 두 접촉점 사이의 전위차와 인체를 통과하는 전류에 의해 결정됩니다.', steps:['주접지단자 확인','외부도전부·금속배관·구조체 적용대상 판정','보호도체 연속성 확인','접속부 부식·풀림 점검'], caution:'본딩은 모든 설비를 항상 0V로 만드는 것이 아니라, 고장 시 동시접촉 가능한 부분의 전위차를 줄이는 조치입니다.', source:'KEC 211 및 2023·2025 등전위본딩 사례'},
-  {category:'접지', title:'단독·공통·통합접지 구분', tags:['단독접지','공통접지','통합접지','EPR'], level:'KEC 기준', summary:'공통접지는 고압·특고압과 저압 접지계통을 공통화하고, 통합접지는 전력·피뢰·통신 등의 접지극을 통합하는 개념입니다.', why:'설비 간 위험한 전위차를 억제하고 전체 접지망의 임피던스를 낮출 수 있지만, 대지전위상승과 전위전달도 함께 검토해야 합니다.', steps:['접지도면과 접지단자함 결선 확인','중성점·보호·피뢰·통신 접지의 연결관계 파악','EPR·접촉·보폭전압 검토','본딩 및 서지보호 협조 확인'], caution:'기존의 1종·2종·3종 용어만으로 현행 KEC 접지설계를 판단하지 않습니다.', source:'KEC 140 및 KEC 시공 가이드북'},
-  {category:'접지', title:'접지저항 3단자법', tags:['3단자법','전위강하법','EPC','보조극'], level:'실무 참고', summary:'시험전류극 C와 전위극 P를 별도로 설치하여 대상 접지극 E의 전위강하를 측정하는 기본 방법입니다.', why:'보조극을 충분히 이격하여 대상 접지극의 전위분포와 겹침을 줄여야 신뢰도 있는 값을 얻습니다.', steps:['대상 접지극 E 확인','C극을 충분히 멀리 설치','P극을 E-C 사이에 설치','P 위치를 전후 이동해 값의 안정성 확인','주변 금속매설물·병렬경로 기록'], caution:'정확한 이격거리와 61.8%법 적용 여부는 접지극 규모·형상과 측정기 매뉴얼에 따릅니다.', source:'접지저항계 매뉴얼 및 2025 접지저항 측정법 사례'},
-  {category:'접지', title:'접지저항 2단자법과 공통접지망', tags:['2단자법','공통접지','병렬저항','측정값'], level:'실무 참고', summary:'2단자법은 기준 접지경로와 대상 접지극의 합성값을 측정하므로, 공통접지망에서는 병렬경로 때문에 매우 낮게 나올 수 있습니다.', why:'여러 접지극과 PE가 병렬로 연결되면 측정전류가 여러 경로로 분산되어 합성저항이 낮아집니다.', steps:['측정 목적이 전체망인지 개별극인지 결정','단선도·접지단자함 연결상태 확인','무정전 상태에서는 임의 분리 금지','필요 시 안전한 정전계획 후 개별극 분리 측정'], caution:'낮은 측정값만으로 개별 접지극의 상태가 양호하다고 단정할 수 없습니다.', source:'2025 분전반·통합접지 2전극법 사례'},
-  {category:'차단기', title:'차단기 명판 읽기', tags:['AF','AT','kA','정격전압','명판'], level:'실무 참고', summary:'AF는 프레임, AT/In은 트립 정격전류, kA는 정격차단전류, V·kV는 정격사용전압, P는 극수입니다.', why:'부하전류만 맞아도 정격전압이나 차단용량이 부족하면 고장전류를 안전하게 차단할 수 없습니다.', steps:['극수 확인','정격사용전압 확인','AF/AT 또는 조정범위 확인','정격차단전류 확인','트립 유닛·보호기능 확인'], caution:'동일 AF라도 AT와 차단용량이 다를 수 있으므로 교체 시 전체 명판을 대조합니다.', source:'2025 차단기 사용종류·VCB용량 사례'},
-  {category:'차단기', title:'IB ≤ In ≤ Iz의 의미', tags:['IB','In','Iz','과부하보호','KEC 212'], level:'KEC 기준', summary:'설계전류 IB 이상인 보호장치 정격 In을 선정하고, 그 In이 보정된 전선 허용전류 Iz를 넘지 않도록 하는 기본 협조관계입니다.', why:'정상 부하에서 불필요하게 차단되지 않으면서, 전선이 과열되기 전에 보호장치가 동작하도록 하기 위함입니다.', steps:['부하 설계전류 계산','포설조건·주위온도·집합 보정 후 Iz 결정','표준 In 선정','규약동작전류 및 시간-전류특성 확인'], caution:'모터 기동전류·인버터 입력특성·선택협조·전압강하·단락보호는 별도로 확인합니다.', source:'KEC 212.4.1 및 2023 질의회신'},
-  {category:'차단기', title:'정격차단전류(kA)를 크게 선정하는 이유', tags:['정격차단전류','단락전류','kA','차단용량'], level:'KEC 기준', summary:'차단기 설치점의 최대 예상 단락전류보다 정격차단전류가 같거나 커야 합니다.', why:'차단용량이 부족하면 접점 용착, 아크 지속, 외함 파손·폭발 위험이 있습니다.', steps:['변압기 용량·임피던스·계통 임피던스로 예상단락전류 산정','설치점별 최소·최대 고장전류 검토','해당 전압에서의 차단용량 확인','상하위 차단기 선택협조 확인'], caution:'무조건 큰 kA가 목적이 아니라 예상 고장전류 이상과 보호협조·경제성을 함께 만족시키는 것이 목적입니다.', source:'KEC 212.5 및 2023 단락전류 보호 사례'},
-  {category:'차단기', title:'모터 회로의 MCCB와 EOCR 역할', tags:['모터','MCCB','EOCR','기동전류'], level:'실무 참고', summary:'MCCB는 주로 배선·단락 보호와 회로 개폐를, EOCR/열동계전기는 모터 과부하·결상 보호를 담당합니다.', why:'모터는 기동 시 정격전류의 수배가 흐를 수 있어 차단기와 과부하계전기의 시간-전류 역할을 분리해야 합니다.', steps:['모터 명판전류 확인','기동방식·기동시간 확인','MCCB 트립곡선과 케이블 보호 검토','EOCR을 명판전류·서비스팩터·제조사 기준에 맞춰 설정','기동시험 후 기록'], caution:'용량만으로 일률적인 MCCB 배수를 적용하지 말고 실제 기동방식과 제조사 데이터를 확인합니다.', source:'KEC 과전류보호 및 2025 EOCR·차단기 과다용량 사례'},
-  {category:'서지', title:'SPD·MOV·LA가 병렬인 이유', tags:['SPD','MOV','LA','병렬','서지'], level:'실무 참고', summary:'평상시에는 거의 전류를 흘리지 않다가 과전압 발생 시 낮은 임피던스 경로로 서지전류를 접지에 방류해 전압을 제한합니다.', why:'부하와 직렬이면 정상전류를 계속 통과시켜야 하지만, 서지보호기는 선로와 대지 사이에 병렬로 연결되어 과전압만 우회시킵니다.', steps:['계통전압·접지방식에 맞는 Uc/MCOV 확인','SPD Type과 설치 위치 결정','전용 백업보호장치 확인','접속도체를 짧고 굵게 시공','상태표시·열화점검'], caution:'SPD는 차단기가 아니며 단락·과부하 보호장치와 역할이 다릅니다.', source:'KEC 213 및 2025 SPD 설치·점검 사례'},
-  {category:'서지', title:'LA 정격전압과 제한전압 구분', tags:['LA','피뢰기','정격전압','제한전압','22.9kV'], level:'실무 참고', summary:'LA 정격전압은 지속적으로 견딜 수 있는 계통조건과 관련된 값이며, 실제 서지 시 단자전압을 어느 수준으로 제한하는지는 제한전압으로 판단합니다.', why:'22.9kV 계통의 대지전압 약 13.2kV만 보고 “18kV 이상에서 스위치처럼 동작”한다고 단순 설명하면 정확하지 않습니다.', steps:['계통 최고전압과 접지방식 확인','MCOV/정격전압 확인','공칭방전전류에서 제한전압 확인','보호대상 BIL과 보호여유 검토'], caution:'정격차단전압이라는 표현보다 피뢰기 정격전압·연속사용전압·제한전압을 구분해 사용합니다.', source:'피뢰기 표준 및 2025 피뢰기·SPD 사례'},
-  {category:'수변전', title:'CT 2차 개방·VT 2차 단락 금지', tags:['CT','VT','PT','MOF','계기용변성기'], level:'실무 참고', summary:'CT 2차는 운전 중 개방하면 고전압이 발생할 수 있고, VT/PT 2차는 단락하면 큰 과전류가 흐를 수 있습니다.', why:'CT는 전류원에 가까운 특성, VT는 전압원에 가까운 특성을 가지기 때문입니다.', steps:['CT 작업 전 2차 단락단자 사용','계기 분리 후에도 CT 2차 폐회로 유지','VT 작업 전 2차 퓨즈·차단기 개방','회로도와 단자번호 확인'], caution:'MOF·계전기 회로는 고압설비 작업절차와 정전·접지 기준을 준수합니다.', source:'2025 CT·MOF·PT 관련 사례'},
-  {category:'수변전', title:'중성선 전류가 커지는 원인', tags:['중성선','N상','고조파','불평형'], level:'실무 참고', summary:'단상부하 불평형뿐 아니라 전자부하의 3고조파 계열이 중성선에서 산술적으로 중첩되어 상전류보다 커질 수 있습니다.', why:'3상에서 기본파는 상쇄되지만 3차·9차 등 영상 고조파는 각 상에서 동상으로 중성선에 합산됩니다.', steps:['상별 전류·N선 전류 동시 측정','THD 및 고조파 스펙트럼 측정','단상부하 재분배','중성선·단자 온도와 체결 점검','필요 시 K-factor·고조파 대책 검토'], caution:'N선 차단·분리는 부하측 이상전압을 만들 수 있으므로 임의 작업하지 않습니다.', source:'2025 N상 전류·고조파 사례'},
-  {category:'수변전', title:'정전·복전 시 기본 확인', tags:['정전','복전','ACB','VCB','ATS'], level:'실무 참고', summary:'정전원인과 계통분리 상태를 확인한 뒤, 부하를 단계적으로 투입해 돌입전류와 이상상태를 관리합니다.', why:'한꺼번에 복전하면 변압기 여자돌입, 모터 재기동, 콘덴서 투입 등으로 과전류·전압강하가 발생할 수 있습니다.', steps:['정전 원인·보호계전기 표시 확인','고장구간 분리','상용·발전기·ATS 상태 확인','무부하 또는 중요부하부터 단계 투입','전압·전류·소음·냄새·온도 감시'], caution:'사업장 복전절차서와 전기안전관리자의 지휘를 우선합니다.', source:'2025 정전·복전 ACB 및 ATS 사례'},
-  {category:'발전기·모터', title:'비상발전기 중성점 접지', tags:['발전기','중성점접지','ATS','4극'], level:'KEC 기준', summary:'발전기 중성점 접지는 전환방식, 중성선 개폐 여부, 계통접지 방식과 보호장치 구성을 함께 검토해야 합니다.', why:'상용과 발전기 중성점이 잘못 중복 연결되면 순환전류·오동작이 생길 수 있고, 분리되면 별도 전원계통으로서 접지와 고장루프가 필요합니다.', steps:['ATS가 3극인지 4극인지 확인','발전기 중성점과 변압기 중성점 연결관계 확인','N-PE 결합점 중복 여부 확인','지락보호·누전보호 동작 검토'], caution:'현장 단선도 없이 점퍼를 임의 제거·추가하지 않습니다.', source:'2025 발전기 중성점 접지 사례'},
-  {category:'발전기·모터', title:'발전기와 인버터 부하', tags:['발전기','인버터','고조파','용량'], level:'실무 참고', summary:'인버터는 기동전류를 줄일 수 있지만 입력 정류부의 고조파, 역률, 발전기 전압조정기와의 상호작용을 고려해야 합니다.', why:'비선형 입력전류는 발전기 권선·AVR에 추가 부담을 주고 전압파형 왜곡을 일으킬 수 있습니다.', steps:['VFD 입력전류·THDi와 제조사 발전기 적용자료 확인','동시운전 부하와 최대주파수 조건 확인','발전기 단락비·리액턴스·AVR 성능 검토','현장 부하시험으로 전압·주파수·THD 확인'], caution:'단순 kW 합계만으로 판단하지 말고 발전기·인버터 제조사에 조합 검토를 요청합니다.', source:'2025 발전기·고조파·VVVF 사례'},
-  {category:'발전기·모터', title:'모터 기동방식과 차단기 선정', tags:['직입','Y-델타','인버터','소프트스타터','기동'], level:'실무 참고', summary:'기동방식은 용량 하나로 고정하지 않고, 허용 전압강하·부하토크·기동시간·전원용량으로 결정합니다.', why:'직입, Y-Δ, 소프트스타터, 인버터는 기동전류와 기동토크가 서로 달라 같은 kW라도 보호기기 조건이 달라집니다.', steps:['부하토크 특성 확인','기동전류·기동시간 자료 확인','전압강하와 상위계통 영향 계산','차단기 트립곡선·EOCR 설정 검토'], caution:'프로그램의 KEC 최소 선정값은 기동특성 검토를 대체하지 않습니다.', source:'KEC 212 및 모터 실무 일반'},
-  {category:'발전기·모터', title:'EOCR 설정의 기본 원칙', tags:['EOCR','과부하','결상','모터명판'], level:'제조사 확인', summary:'EOCR은 모터 명판 정격전류를 출발점으로 실제 운전전류, 결선, 서비스팩터, 기동시간과 제조사 지침을 반영해 설정합니다.', why:'너무 낮으면 기동·정상부하에서 오동작하고, 너무 높으면 권선 과열 전에 보호하지 못합니다.', steps:['명판전류·결선 확인','무부하·정상부하 전류 측정','기동지연시간 설정','불평형·결상·구속 보호 설정','시험버튼·실동작 검증'], caution:'인버터 출력측에는 일반 EOCR 적용 방식이 제한될 수 있으므로 VFD 전자열동 보호와 제조사 기준을 확인합니다.', source:'2025 EOCR 설치 사례'},
-  {category:'서지', title:'SPD 접속선은 왜 짧아야 하나', tags:['SPD','접속선','인덕턴스','보호전압'], level:'실무 참고', summary:'서지전류의 급격한 변화에서 접속선 인덕턴스에 추가 전압이 발생하므로, 선로-SPD-접지 총 접속길이를 최소화합니다.', why:'보호대상에서 실제로 보이는 전압은 SPD 제한전압에 배선의 유도성 전압강하가 더해진 값입니다.', steps:['V결선 또는 켈빈형 접속 검토','불필요한 루프 제거','PE 접속을 짧고 직선으로 시공','제조사 최대길이 준수'], caution:'접지저항만 낮추는 것보다 SPD 근처의 접속 임피던스를 낮추는 것이 서지 보호에 중요합니다.', source:'KEC 213 및 SPD 제조사 시공지침'}
-];
-
-function initSafety(){
-  const list=$('safetyList');
-  if(!list) return;
-  const search=$('safetySearch'), category=$('safetyCategory');
-  const render=()=>{
-    const q=(search?.value||'').trim().toLowerCase();
-    const cat=category?.value||'all';
-    const rows=SAFETY_GUIDE.filter(x=>{
-      const hay=[x.title,x.category,x.summary,x.why,...x.tags,...x.steps,x.caution].join(' ').toLowerCase();
-      return (cat==='all'||x.category===cat) && (!q||hay.includes(q));
-    });
-    $('safetyCount').textContent=`총 ${SAFETY_GUIDE.length}개 핵심항목 중 ${rows.length}개 표시`;
-    list.innerHTML=rows.length?rows.map(safetyCardHtml).join(''):'<div class="card"><p class="help">검색 결과가 없습니다.</p></div>';
-  };
-  search?.addEventListener('input',render); category?.addEventListener('change',render);
-  $('safetyExpandAll')?.addEventListener('click',()=>qsa('#safetyList details').forEach(d=>d.open=true));
-  $('safetyCollapseAll')?.addEventListener('click',()=>qsa('#safetyList details').forEach(d=>d.open=false));
-  render();
-}
-function safetyLevelClass(level){ return level==='KEC 기준'?'ok':level==='제조사 확인'?'danger':'warn'; }
-function safetyCardHtml(x){
-  return `<details class="safety-card" data-category="${esc(x.category)}"><summary><span class="safety-title">${esc(x.title)}</span><span class="badge ${safetyLevelClass(x.level)}">${esc(x.level)}</span></summary>
-    <div class="safety-body">
-      <div class="safety-key"><b>핵심</b><p>${esc(x.summary)}</p></div>
-      <h4>왜 그런가?</h4><p>${esc(x.why)}</p>
-      <h4>현장 확인 순서</h4><ol>${x.steps.map(v=>`<li>${esc(v)}</li>`).join('')}</ol>
-      <div class="safety-caution"><b>주의</b><p>${esc(x.caution)}</p></div>
-      <div class="safety-tags">${x.tags.map(t=>`<span>#${esc(t)}</span>`).join('')}</div>
-      <div class="safety-source"><b>자료 기준:</b> ${esc(x.source)}</div>
-    </div>
-  </details>`;
-}

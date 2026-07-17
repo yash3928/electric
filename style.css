@@ -64,26 +64,16 @@ h4{margin:8px 0 6px;font-size:14px}
 .converter-box h3{margin:0 0 8px;font-size:15px}
 @media(max-width:760px){.converter-grid{grid-template-columns:1fr}}
 
-
-/* Ver 10.8: electrical safety field guide */
-.safety-search-grid{display:grid;grid-template-columns:2fr 1fr;gap:9px;margin-top:9px}
-.safety-legend{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.safety-list{display:grid;gap:8px;margin:8px 0}
-.safety-card{margin:0;border-radius:12px;padding:0;overflow:hidden}
-.safety-card summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;background:#fff;list-style:none}
-.safety-card summary::-webkit-details-marker{display:none}
-.safety-card summary::before{content:'＋';font-weight:900;color:var(--accent);margin-right:2px}
-.safety-card[open] summary::before{content:'－'}
-.safety-title{flex:1;font-size:14px}
-.safety-body{border-top:1px solid var(--line);padding:12px;font-size:13px;line-height:1.6}
-.safety-body p{margin:4px 0 9px}
-.safety-body ol{margin:5px 0 10px;padding-left:22px}
-.safety-body li{margin:3px 0}
-.safety-key,.safety-caution{border-radius:10px;padding:9px 10px;margin:7px 0}
-.safety-key{background:#eff8ff;border:1px solid #b2ddff}
-.safety-caution{background:#fff6ed;border:1px solid #fed7aa}
-.safety-key p,.safety-caution p{margin:3px 0 0}
-.safety-tags{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0}
-.safety-tags span{font-size:11px;background:#f2f4f7;border:1px solid var(--line);border-radius:999px;padding:3px 7px;color:#475467}
-.safety-source{font-size:11px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
-@media(max-width:760px){.safety-search-grid{grid-template-columns:1fr}.safety-card summary{padding:10px}.safety-title{font-size:13px}.safety-body{padding:10px;font-size:12px}}
+/* Ver 10.8: safety training notes */
+.training-header{border-left:5px solid var(--accent)}
+.training-body{padding:8px 2px 2px;font-size:13px;line-height:1.65}
+.training-body ul{margin:2px 0 4px;padding-left:21px}
+.training-body li{margin:5px 0}
+.system-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:10px 0}
+.system-box{border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--soft)}
+.system-box h3{margin:0 0 6px}
+.system-box p{margin:5px 0;font-size:13px;line-height:1.55}
+.memory-line{border-top:1px dashed var(--line);padding-top:7px}
+#safetyTraining details{padding:10px 12px;margin-bottom:8px}
+#safetyTraining summary{font-size:14px}
+@media(max-width:760px){.system-grid{grid-template-columns:1fr}.training-body{font-size:12px}}
