@@ -6,7 +6,7 @@ const APP_ASSETS = [
   './script.js',
   './database.js',
   './tariff.json',
-  './manifest.json?v=10.8.2',
+  './manifest.json?v=10.8.1',
   './icons/icon-lightning.svg',
   './icons/icon-lightning-192.png',
   './icons/icon-lightning-512.png',

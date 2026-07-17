@@ -78,6 +78,26 @@ h4{margin:8px 0 6px;font-size:14px}
 #safetyTraining summary{font-size:14px}
 @media(max-width:760px){.system-grid{grid-template-columns:1fr}.training-body{font-size:12px}}
 
-/* Ver 10.8.2: KEC visual formulas and field diagrams */
-.formula-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0}.formula-card{border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc;padding:10px;text-align:center}.formula-card strong{display:block;font-size:17px;color:#0f3f82;margin:5px 0}.formula-card small{display:block;color:var(--muted);line-height:1.45}.formula-title{font-size:11px;font-weight:900;color:#475467}.equation{margin:9px 0;padding:11px;border-left:4px solid var(--accent);border-radius:8px;background:#eff6ff;font-size:17px;font-weight:900;text-align:center;letter-spacing:.2px}.example{padding:9px;border-radius:9px;background:#f8fafc;border:1px dashed #94a3b8;line-height:1.6}.flow-diagram,.breaker-symbol{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}.flow-diagram div,.breaker-symbol div{padding:8px 10px;border:2px solid #64748b;border-radius:9px;font-weight:800;text-align:center}.flow-diagram span,.breaker-symbol span{font-size:11px;color:#64748b;font-weight:800}.danger-node{border-color:#dc2626!important;background:#fef2f2}.mini-sld{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:normal;border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:9px;line-height:1.7;margin-bottom:8px}.mini-sld em{font-family:inherit;color:#475467;font-size:11px}.site-diagram{display:grid;grid-template-columns:1fr auto 1.4fr auto 1fr;gap:8px;align-items:center;margin:12px 0}.site-diagram>div:not(.site-arrow){padding:13px 9px;border:2px solid #64748b;border-radius:10px;text-align:center;font-weight:800;background:#fff}.site-met{border-color:var(--accent)!important;background:#eff6ff!important}.site-arrow{font-size:11px;color:#64748b;text-align:center}.warning-box{padding:10px;border:1px solid #f59e0b;border-left:5px solid #f59e0b;border-radius:9px;background:#fffbeb;line-height:1.6;margin:10px 0}.earth-diagram{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:13px;border:1px solid var(--line);border-radius:12px;background:#f8fafc;margin:9px 0}.earth-diagram div{min-width:100px;padding:9px;border:2px solid #334155;border-radius:50%;text-align:center;font-weight:900;background:#fff}.earth-diagram span{font-size:11px;color:#64748b}.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}.process-grid div{padding:9px;border:1px solid var(--line);border-radius:9px;background:#fff;font-weight:800;text-align:center}.clamp-diagram{position:relative;max-width:520px;margin:12px auto;padding:12px 150px 12px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}.wire{margin:6px 0;padding:4px 8px;border-bottom:3px solid #64748b;font-weight:900}.clamp{position:absolute;right:15px;top:20px;width:120px;height:120px;border:12px solid #334155;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;background:#f8fafc}.spd-diagram{width:max-content;max-width:100%;margin:12px auto;padding:12px 30px;border:1px solid var(--line);border-radius:12px;background:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.5;font-weight:800}.spd-box{display:inline-block;border:2px solid var(--accent);border-radius:7px;padding:5px 10px;background:#eff6ff}.breaker{border-color:#111827!important;background:#f8fafc}.supply,.load{min-width:70px}
-@media(max-width:760px){.formula-grid,.process-grid{grid-template-columns:1fr}.site-diagram{grid-template-columns:1fr}.site-arrow:after{content:'↓';display:block;font-size:18px}.site-arrow{font-size:0}.equation{font-size:15px}.clamp-diagram{padding-right:110px}.clamp{width:86px;height:86px;border-width:9px;right:10px;top:28px;font-size:10px}.earth-diagram span{width:100%;text-align:center}.earth-diagram div{border-radius:12px}.mini-sld{font-size:11px}}
+/* Ver 10.8.2: readable field-training handbook */
+.training-title{margin:12px 0 5px;font-size:14px;color:#1d2939}
+.training-body p{margin:6px 0}
+.training-body ol{margin:4px 0 6px;padding-left:23px}
+.step-list li{margin:6px 0;padding-left:2px}
+.formula-note{margin:9px 0;padding:10px 11px;border:1px solid #b9d2f5;border-left:4px solid var(--accent);border-radius:10px;background:#f5f9ff}
+.formula-note>b{display:block;font-size:12px;color:#475467;margin-bottom:3px}
+.formula-note>span{display:block;font-size:15px;font-weight:900;letter-spacing:.1px;color:#174ea6;margin-bottom:3px;overflow-wrap:anywhere}
+.formula-note p{font-size:12px;color:#475467;margin:2px 0}
+.warning-box{margin:9px 0;padding:10px 11px;border:1px solid #f0c9a7;border-left:4px solid #e67e22;border-radius:10px;background:#fff9f3}
+.warning-box>b{display:block;font-size:13px;color:#9a4b0d;margin-bottom:3px}
+.warning-box p{font-size:12px;color:#5f3b20;margin:0}
+#safetyTraining details{padding:0;overflow:hidden}
+#safetyTraining summary{padding:11px 12px;background:#fff;line-height:1.35}
+#safetyTraining details[open]>summary{background:#f7faff;border-bottom:1px solid var(--line);color:#174ea6}
+#safetyTraining .training-body{padding:10px 12px 12px}
+@media(max-width:760px){
+  #safetyTraining summary{font-size:13px;padding:10px}
+  #safetyTraining .training-body{padding:8px 10px 10px;font-size:12px;line-height:1.6}
+  .training-title{font-size:13px;margin-top:10px}
+  .formula-note>span{font-size:13px}
+  #safetyTraining .report-table{min-width:560px}
+}
