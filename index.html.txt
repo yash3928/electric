@@ -27,6 +27,7 @@
       <button class="tab" data-tab="saving">💡 전력절감</button>
       <button class="tab" data-tab="tariffAdmin">📊 한전 요금표 관리</button>
       <button class="tab" data-tab="kecInspection">📘 KEC 사용전점검</button>
+      <button class="tab" data-tab="kecMain">📚 KEC 주요내용</button>
     </nav>
 
     <section id="converter" class="panel active">
@@ -306,11 +307,108 @@
       <div class="card training-footer-note"><strong>적용 전 확인</strong><p>이 자료는 업로드된 KEC 사용전점검 기준변경 자료를 현장 교육용으로 재구성한 것입니다. 실제 설계·시공·검사에서는 최신 KEC 원문, 검사기관 지침, 설비 조건과 제조사 자료를 함께 확인하세요.</p></div>
     </section>
 
+
+    <section id="kecMain" class="panel">
+      <div class="card training-hero-card">
+        <h2>📚 한국전기설비규정(KEC) 주요내용</h2>
+      </div>
+
+      <details class="training-section">
+        <summary><span class="training-no">1</span> KEC 구성과 적용 개요</summary>
+        <div class="training-body">
+          <p>KEC는 국내 전기설비의 설계·시공·검사에 적용하는 기술기준으로, 국제표준인 IEC 체계를 바탕으로 구성됩니다. 전압 범위, 감전보호, 과전류보호, 접지, 피뢰, 특수설비 등 전기설비 전반의 안전요건을 하나의 체계로 정리한 규정입니다.</p>
+          <div class="training-grid two">
+            <article><h4>구성 체계</h4><p>공통사항을 시작으로 저압전기설비, 고압·특고압 설비, 분산형 전원, 전기철도, 특수설비 등 분야별 규정을 체계적으로 구분합니다.</p></article>
+            <article><h4>현장 적용 원칙</h4><p>설비의 전압, 접지계통, 사용환경, 부하 특성, 보호장치와 배선방식을 먼저 확인한 뒤 해당 장의 세부 기준을 적용합니다.</p></article>
+          </div>
+          <div class="tip-box"><strong>실무 TIP</strong><p>KEC 조항을 단독으로 보지 말고, 설계조건과 제조사 자료, 검사기관 지침을 함께 확인해야 합니다. 같은 설비라도 접지계통과 보호방식에 따라 적용기준이 달라질 수 있습니다.</p></div>
+        </div>
+      </details>
+
+      <details class="training-section">
+        <summary><span class="training-no">2</span> 제1장 공통사항과 적용범위</summary>
+        <div class="training-body">
+          <p>제1장은 KEC 전체에 공통으로 적용되는 목적, 적용범위, 용어, 안전을 위한 보호, 전선, 전로의 절연, 접지시스템과 피뢰시스템의 기본 원칙을 규정합니다.</p>
+          <ul class="training-list"><li><strong>적용범위:</strong> 발전·송전·변전·배전 및 전기사용설비의 설계, 시공, 검사와 유지관리</li><li><strong>우선 확인:</strong> 설비의 정격전압, 교류·직류 여부, 계통 접지방식, 설치장소와 외부영향</li><li><strong>기본 원칙:</strong> 감전, 열, 과전류, 과전압, 전압저하 및 기계적 위험으로부터 사람과 재산을 보호</li></ul>
+          <div class="warning-box"><strong>주의</strong><p>KEC는 설비 전체의 안전성 확보가 목적입니다. 특정 자재가 규격품이라는 이유만으로 전체 설비가 자동으로 적합해지는 것은 아닙니다.</p></div>
+        </div>
+      </details>
+
+      <details class="training-section">
+        <summary><span class="training-no">3</span> 전압 구분과 용어 정의</summary>
+        <div class="training-body">
+          <p>KEC에서는 교류와 직류의 전압 구분을 명확히 하고, 국제표준과 통일된 용어를 사용합니다. 설비의 전압등급을 잘못 판단하면 적용해야 할 절연, 이격거리, 보호장치 기준도 달라질 수 있습니다.</p>
+          <div class="table-wrap"><table class="report-table"><thead><tr><th>구분</th><th>교류</th><th>직류</th></tr></thead><tbody><tr><td>저압</td><td>1kV 이하</td><td>1.5kV 이하</td></tr><tr><td>고압</td><td>1kV 초과 7kV 이하</td><td>1.5kV 초과 7kV 이하</td></tr><tr><td>특고압</td><td colspan="2">7kV 초과</td></tr></tbody></table></div>
+          <div class="memory-box"><strong>용어 정리</strong><p>노출도전부는 기기의 금속 외함처럼 고장 시 충전될 수 있는 부분이고, 계통외도전부는 배관·철골처럼 전기설비의 일부는 아니지만 전위를 유입할 수 있는 금속체입니다.</p></div>
+        </div>
+      </details>
+
+      <details class="training-section">
+        <summary><span class="training-no">4</span> 안전을 위한 보호</summary>
+        <div class="training-body">
+          <p>안전보호는 감전뿐 아니라 열, 과전류, 고장전류, 과전압과 전압강하 등 전기설비에서 발생할 수 있는 여러 위험을 함께 관리하는 개념입니다.</p>
+          <div class="training-grid two">
+            <article><h4>감전에 대한 보호</h4><p>기본보호와 고장보호를 조합하여 충전부 직접접촉과 절연고장 시의 간접접촉 위험을 줄입니다.</p></article>
+            <article><h4>열 영향에 대한 보호</h4><p>과열, 아크, 불꽃으로 인한 화재와 화상의 위험이 없도록 전선 허용전류, 접속상태, 방열과 이격을 확인합니다.</p></article>
+            <article><h4>과전류 보호</h4><p>과부하전류와 단락전류를 구분하고, 전선과 기기의 허용한도 이내에서 보호장치가 동작하도록 선정합니다.</p></article>
+            <article><h4>과전압·저전압 보호</h4><p>낙뢰·개폐서지와 전압강하로 인한 절연파괴, 오동작과 정지를 방지하기 위해 SPD 및 적절한 보호대책을 적용합니다.</p></article>
+          </div>
+          <div class="check-box"><strong>현장 확인</strong><p>차단기의 정격전류만 보지 말고 차단용량, 동작특성, 전선 허용전류, 고장루프임피던스와 보호협조를 함께 확인합니다.</p></div>
+        </div>
+      </details>
+
+      <details class="training-section">
+        <summary><span class="training-no">5</span> 전선의 선정과 색상 식별</summary>
+        <div class="training-body">
+          <p>전선은 허용전류, 전압강하, 단락 시 열적강도, 기계적 강도와 설치환경을 고려하여 선정합니다. 상별 색상은 유지보수와 오접속 방지를 위한 핵심 식별수단입니다.</p>
+          <div class="wire-colors"><div class="wire brown"><b>L1</b><span>갈색</span></div><div class="wire black"><b>L2</b><span>흑색</span></div><div class="wire gray"><b>L3</b><span>회색</span></div><div class="wire blue"><b>N</b><span>청색</span></div><div class="wire greenyellow"><b>PE</b><span>녹색-노랑</span></div></div>
+          <ul class="training-list"><li>기존설비와 신규설비를 연결할 때는 종단부에 상표시와 색상표시를 명확히 합니다.</li><li>중성선의 청색과 보호도체의 녹색-노랑 조합은 다른 용도로 사용하지 않습니다.</li><li>허용전류는 포설방법, 주위온도, 다회로 집합, 단열재와 고조파 영향을 보정하여 적용합니다.</li></ul>
+          <div class="warning-box"><strong>자주 발생하는 오류</strong><p>상 색상 혼용, N과 PE의 오접속, 케이블 정격만 보고 보정계수를 누락하는 경우가 대표적입니다.</p></div>
+        </div>
+      </details>
+
+      <details class="training-section">
+        <summary><span class="training-no">6</span> 전로의 절연과 특별저압</summary>
+        <div class="training-body">
+          <p>전로는 사용전압과 설치환경에 적합한 절연성능을 유지해야 하며, 절연저항 측정은 전로와 기기의 누설 및 절연열화를 확인하는 기본 점검입니다.</p>
+          <div class="training-grid two">
+            <article><h4>절연 확인</h4><p>측정 전 전자기기, SPD, 인버터 등 시험전압에 민감한 장비를 분리하고, 회로별로 측정하여 불량구간을 구분합니다.</p></article>
+            <article><h4>SELV·PELV·FELV</h4><p>특별저압은 전압만 낮추는 것이 아니라 전원 분리, 접지 여부와 회로구성에 따라 감전보호 성능이 달라집니다.</p></article>
+          </div>
+          <div class="tip-box"><strong>실무 TIP</strong><p>절연저항이 기준 이상이더라도 회로 간 편차가 크거나 시간이 지날수록 급격히 저하되면 수분, 오염, 케이블 손상 여부를 추가 확인합니다.</p></div>
+        </div>
+      </details>
+
+      <details class="training-section">
+        <summary><span class="training-no">7</span> 접지시스템과 등전위본딩</summary>
+        <div class="training-body">
+          <p>접지시스템은 접지극, 접지도체, 주 접지단자, 보호도체와 등전위본딩으로 구성됩니다. 목적은 고장전류의 안전한 귀로를 만들고 설비 사이의 위험한 전위차를 줄이는 것입니다.</p>
+          <ul class="training-list"><li>TN, TT, IT 계통별 고장전류 경로와 보호장치 동작원리를 구분합니다.</li><li>금속 외함은 PE에 접속하고, 외부에서 들어오는 금속배관·철골 등은 주 보호등전위본딩 대상 여부를 확인합니다.</li><li>N과 PE는 정해진 분리점 이후 다시 연결하지 않습니다.</li><li>접지저항 수치만이 아니라 보호장치가 제한시간 내 동작하는지까지 확인합니다.</li></ul>
+          <div class="memory-box"><strong>핵심</strong><p>접지는 ‘저항을 낮추는 작업’만이 아니라 고장전류 경로, 보호장치 동작, 등전위 형성을 하나의 시스템으로 검토하는 것입니다.</p></div>
+        </div>
+      </details>
+
+      <details class="training-section">
+        <summary><span class="training-no">8</span> 피뢰시스템과 서지보호</summary>
+        <div class="training-body">
+          <p>피뢰시스템은 수뢰부, 인하도선, 접지시스템으로 외부 낙뢰전류를 안전하게 방류하고, 내부 피뢰시스템은 등전위본딩과 SPD로 설비 내부의 위험한 전위차와 과전압을 제한합니다.</p>
+          <div class="training-grid two">
+            <article><h4>외부 피뢰시스템</h4><p>수뢰부가 낙뢰를 받아 인하도선과 접지극으로 방류하도록 연속성, 이격거리, 부식과 기계적 손상을 확인합니다.</p></article>
+            <article><h4>내부 피뢰시스템</h4><p>전원선·통신선·금속배관의 인입부에서 등전위본딩과 SPD를 적용하여 낙뢰로 인한 전위차를 줄입니다.</p></article>
+          </div>
+          <ul class="training-list"><li>SPD는 계통전압, 접지방식, 설치위치와 요구되는 보호등급에 맞게 선정합니다.</li><li>SPD 접속선은 가능한 짧고 곧게 시공하며, 보호장치와 백업퓨즈의 협조를 확인합니다.</li><li>옥상 구조물, 태양광설비, 안테나와 외부 인입선은 낙뢰위험과 이격거리 검토가 필요합니다.</li></ul>
+          <div class="check-box"><strong>점검 포인트</strong><p>피뢰침 설치 여부만 보지 말고 인하도선의 단선·부식, 시험단자, 접지 연결, SPD 상태표시와 접속길이를 함께 확인합니다.</p></div>
+        </div>
+      </details>
+
+      <div class="card training-footer-note"><strong>적용 전 확인</strong><p>이 자료는 업로드된 KEC 주요내용 자료를 현장 교육용으로 재구성한 요약본입니다. 실제 설계·시공·검사에는 최신 KEC 원문과 관련 표준, 검사기관 지침을 우선 적용하세요.</p></div>
+    </section>
+
     <section class="notice"><strong>주의</strong> 본 도구는 KEC, 한전 요금표, 국내 표준 자재 기준을 활용한 실무 보조용입니다. 최종 설계·시공 전 최신 규정, 포설조건, 제조사 치수, 사내 기준을 확인하세요.</section>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="database.js?v=10.8.0"></script>
-  <script src="script.js?v=10.8.0"></script>
+  <script src="database.js?v=10.8.2"></script>
+  <script src="script.js?v=10.8.2"></script>
   <script>
     (function () {
       function showUpdateNotice(registration) {
