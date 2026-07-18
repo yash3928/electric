@@ -1,5 +1,3 @@
-Electrical Toolbox Pro v10.9.0 - 전기안전관리자 특별과정 실무교재판
-
 # Financial Toolbox Pro v5
 
 ## 구성 파일
@@ -30,3 +28,8 @@ Electrical Toolbox Pro v10.9.0 - 전기안전관리자 특별과정 실무교재
 
 
 v1.4.7: 앱 아이콘 내부 문구와 홈 화면 표시 이름을 dzzhzz로 변경했습니다.
+
+
+[Ver 10.8.0]
+- KEC 적용 사용전점검 기준변경 주요내용 교육 메뉴 추가
+- 접지시스템, TT/TN-C-S, 도체 굵기, 자동차단, RCD, 전선 식별, 배관·기구 시공 기준 정리

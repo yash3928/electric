@@ -1,4 +1,4 @@
-const CACHE_NAME = 'electric-toolbox-pwa-v10.9.0';
+const CACHE_NAME = 'electric-toolbox-pwa-v10.8.0';
 const APP_ASSETS = [
   './',
   './index.html',
@@ -6,7 +6,7 @@ const APP_ASSETS = [
   './script.js',
   './database.js',
   './tariff.json',
-  './manifest.json?v=10.9.0',
+  './manifest.json?v=10.8.0',
   './icons/icon-lightning.svg',
   './icons/icon-lightning-192.png',
   './icons/icon-lightning-512.png',

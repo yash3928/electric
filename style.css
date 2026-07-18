@@ -64,53 +64,7 @@ h4{margin:8px 0 6px;font-size:14px}
 .converter-box h3{margin:0 0 8px;font-size:15px}
 @media(max-width:760px){.converter-grid{grid-template-columns:1fr}}
 
-/* Ver 10.8: safety training notes */
-.training-header{border-left:5px solid var(--accent)}
-.training-body{padding:8px 2px 2px;font-size:13px;line-height:1.65}
-.training-body ul{margin:2px 0 4px;padding-left:21px}
-.training-body li{margin:5px 0}
-.system-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:10px 0}
-.system-box{border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--soft)}
-.system-box h3{margin:0 0 6px}
-.system-box p{margin:5px 0;font-size:13px;line-height:1.55}
-.memory-line{border-top:1px dashed var(--line);padding-top:7px}
-#safetyTraining details{padding:10px 12px;margin-bottom:8px}
-#safetyTraining summary{font-size:14px}
-@media(max-width:760px){.system-grid{grid-template-columns:1fr}.training-body{font-size:12px}}
 
-/* Ver 10.8.2: readable field-training handbook */
-.training-title{margin:12px 0 5px;font-size:14px;color:#1d2939}
-.training-body p{margin:6px 0}
-.training-body ol{margin:4px 0 6px;padding-left:23px}
-.step-list li{margin:6px 0;padding-left:2px}
-.formula-note{margin:9px 0;padding:10px 11px;border:1px solid #b9d2f5;border-left:4px solid var(--accent);border-radius:10px;background:#f5f9ff}
-.formula-note>b{display:block;font-size:12px;color:#475467;margin-bottom:3px}
-.formula-note>span{display:block;font-size:15px;font-weight:900;letter-spacing:.1px;color:#174ea6;margin-bottom:3px;overflow-wrap:anywhere}
-.formula-note p{font-size:12px;color:#475467;margin:2px 0}
-.warning-box{margin:9px 0;padding:10px 11px;border:1px solid #f0c9a7;border-left:4px solid #e67e22;border-radius:10px;background:#fff9f3}
-.warning-box>b{display:block;font-size:13px;color:#9a4b0d;margin-bottom:3px}
-.warning-box p{font-size:12px;color:#5f3b20;margin:0}
-#safetyTraining details{padding:0;overflow:hidden}
-#safetyTraining summary{padding:11px 12px;background:#fff;line-height:1.35}
-#safetyTraining details[open]>summary{background:#f7faff;border-bottom:1px solid var(--line);color:#174ea6}
-#safetyTraining .training-body{padding:10px 12px 12px}
-@media(max-width:760px){
-  #safetyTraining summary{font-size:13px;padding:10px}
-  #safetyTraining .training-body{padding:8px 10px 10px;font-size:12px;line-height:1.6}
-  .training-title{font-size:13px;margin-top:10px}
-  .formula-note>span{font-size:13px}
-  #safetyTraining .report-table{min-width:560px}
-}
-
-/* v10.9.0 안전관리 교육 실무교재판 */
-.training-index{padding:12px 14px}
-.training-index h3{margin:0 0 8px;font-size:14px}
-.training-chip-wrap{display:flex;flex-wrap:wrap;gap:6px}
-.training-chip-wrap span{display:inline-block;padding:6px 9px;border:1px solid #d7dee8;border-radius:999px;background:#f8fafc;font-size:12px;font-weight:700;color:#344054}
-.check-list{list-style:none;padding-left:0!important}
-.check-list li{position:relative;padding-left:25px}
-.check-list li:before{content:'□';position:absolute;left:2px;top:0;font-weight:800;color:#175cd3}
-.summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.summary-item{display:flex;flex-direction:column;gap:4px;padding:10px;border:1px solid #dfe6ee;border-radius:10px;background:#fafcff}
-.summary-item b{font-size:13px;color:#175cd3}.summary-item span{font-size:12px;line-height:1.5;color:#344054}
-@media(max-width:760px){.summary-grid{grid-template-columns:1fr}.training-chip-wrap span{font-size:11px;padding:5px 8px}}
+/* Ver 10.8: KEC 사용전점검 교육자료 */
+.training-hero-card{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;border:0}.training-hero-card .help{color:#dbeafe}.training-kicker{margin:0 0 5px;color:#bfdbfe;font-size:12px;font-weight:800}.training-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.training-summary-grid>div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:11px;padding:10px}.training-summary-grid strong,.training-summary-grid span{display:block}.training-summary-grid strong{font-size:12px;color:#bfdbfe}.training-summary-grid span{font-size:13px;font-weight:800;margin-top:4px}.training-section{padding:0;overflow:hidden;background:#fff}.training-section>summary{display:flex;align-items:center;gap:9px;padding:12px;background:#f8fafc;font-size:15px}.training-section[open]>summary{border-bottom:1px solid var(--line)}.training-no{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;border-radius:50%;background:#1d4ed8;color:#fff;font-size:12px}.training-body{padding:12px;line-height:1.65;font-size:13px}.training-body>p{margin:0 0 9px}.training-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.training-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.training-grid article{border:1px solid var(--line);border-radius:11px;padding:10px;background:#fff}.training-grid article h4{color:#1d4ed8;margin-top:0}.training-grid article p{margin:0}.tip-box,.warning-box,.example-box,.memory-box,.check-box{border-radius:11px;padding:10px;margin-top:10px}.tip-box{background:#eff6ff;border:1px solid #bfdbfe}.warning-box{background:#fff7ed;border:1px solid #fed7aa}.example-box{background:#f0fdf4;border:1px solid #bbf7d0}.memory-box{background:#faf5ff;border:1px solid #e9d5ff}.check-box{background:#f8fafc;border:1px solid var(--line)}.tip-box p,.warning-box p,.example-box p,.memory-box p,.check-box p{margin:4px 0 0}.formula-box{font-size:22px;font-weight:900;text-align:center;border:2px solid #93c5fd;background:#eff6ff;border-radius:12px;padding:14px;margin:10px 0}.formula-inline{font-size:17px;font-weight:900;color:#1d4ed8;margin:4px 0 7px}.training-list{margin:7px 0 0;padding-left:20px}.training-list li{margin:5px 0}.training-list.compact li{margin:3px 0}.wire-colors{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px}.wire{border-radius:10px;padding:9px;text-align:center;border:1px solid rgba(0,0,0,.15)}.wire b,.wire span{display:block}.wire span{font-size:11px;margin-top:3px}.wire.brown{background:#795548;color:#fff}.wire.black{background:#111827;color:#fff}.wire.gray{background:#9ca3af;color:#111827}.wire.blue{background:#2563eb;color:#fff}.wire.greenyellow{background:linear-gradient(90deg,#16a34a 0 50%,#facc15 50%);color:#111827}.training-footer-note{border-left:5px solid #1d4ed8}.training-footer-note p{margin:5px 0 0;font-size:12px;line-height:1.55;color:var(--muted)}
+@media(max-width:760px){.training-summary-grid,.training-grid,.training-grid.two{grid-template-columns:1fr}.wire-colors{grid-template-columns:repeat(5,minmax(62px,1fr));overflow-x:auto}.training-body{padding:10px}.training-section>summary{padding:11px;font-size:14px}}
